@@ -18,7 +18,7 @@ checkrc()
 }
 
 ps aux | grep [h]adoop >/dev/null 2>&1
-checkrc "" "Some of the Hadoop Servers are already running! Please stop them first.."
+#checkrc "" "Some of the Hadoop Servers are already running! Please stop them first.."
 
 echo " "
 echo " Starting vStore Servers..."

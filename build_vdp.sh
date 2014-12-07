@@ -5,6 +5,7 @@
 #
 ###########################################################
 #!/bin/bash 
+#invoke with s390x Hadoop option for ppc compile
 
 platform=""
 buildhost="192.168.55.14"

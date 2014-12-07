@@ -1,0 +1,24 @@
+export IBM_JAVA_HOME=SED_JAVA_HOME
+export JAVA_HOME=SED_JAVA_HOME
+
+export HADOOP_HOME=/opt/vse/hadoop
+export HADOOP_HDFS_HOME=/opt/vse/hadoop
+export HADOOP_COMMON_HOME=/opt/vse/hadoop
+export HADOOP_YARN_HOME=/opt/vse/hadoop
+export HADOOP_CONF_DIR=/opt/vse/hadoop/etc/hadoop
+export HADOOP_MAPRED_HOME=/opt/vse/hadoop
+export YARN_CONF_DIR=/opt/vse/hadoop/etc/hadoop
+export YARN_HOME=/opt/vse/hadoop
+export PIG_HOME=/opt/vse/pig
+export HIVE_HOME=/opt/vse/hive
+export FLUME_HOME=/opt/vse/flume
+
+export VSE_WEBHOME=/webapps/vse
+export VSE_HOME=/opt/vse
+export TWITTER_HOME=/opt/vse/twitter
+export VSE_LICENSE=/opt/vse/.license
+export VSE_CATALOG=/opt/vse/webapps/vse/WEB-SOURCE/vse_nls
+
+export CLASSPATH=$CLASSPATH:/root/jaxrs-ri/lib/*:/root/jaxrs-ri/ext/*:/opt/vse/lib/*:/opt/vse/lib/postgresql-jdbc.jar:/opt/vse/lib/log4j-1.2.17.jar:/opt/vse/webapps/vse/WEB-INF:
+
+export PATH=$PATH:$VSE_HOME/sbin:$VSE_HOME/lib:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:$HIVE_HOME/bin:$FLUME_HOME/bin

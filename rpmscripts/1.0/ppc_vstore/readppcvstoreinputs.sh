@@ -16,31 +16,10 @@ HIVEUSER="hive"
 HIVEPASSWD="hive"
 LOCUSER="root"
 LOCPASSWD=""
-DBIPADDR=""
-DBPORT=""
-
-readinputfile()
-{
-	counter=1
-	while read RLINE
-	do
-        	case $counter in
-              		1) PORT=$RLINE;;
-              		2) IPADDRESS=$RLINE;;
-              		3) NOOFRECORDS=$RLINE;;
-              		4) WEBAPPSHOME=$RLINE;;
-              		5) SSL=$RLINE;;
-              		6) DBIPADDR=$RLINE;;
-              		7) DBPORT=$RLINE;;
-        	esac
-        	counter=`expr $counter + 1`
-	done < /opt/vse/.license/.vStorm_inputs
-}
-#readinputfile
-
 DBIPADDR="localhost"
 DBPORT="5432"
-
+DBUSER=""
+DBPASS=""
 readinputs()
 {
 	echo -n "Please enter NameNode IPAdress: "
@@ -49,6 +28,17 @@ readinputs()
 	echo -n "Please enter JDK Path: "
 	read JDKPATH
 	#JDKPATH="/opt/vse/java/jre"
+        echo -n "Please enter DB IP Address: "
+        read DBIPADDR
+        echo -n "Please enter DB Port: "
+        read DBPORT
+        echo -n "Please enter DB User: "
+        read DBUSER
+        echo -n "Please enter DB Password: "
+        stty_orig=`stty -g`
+        stty -echo
+        read DBPASS
+        stty $stty_orig
 }
 
 inputsummary()
@@ -56,6 +46,26 @@ inputsummary()
 	echo "Summary"
 	echo "NameNode IPAdress: $NNIPADDRESS"
 	echo "JDK Path: $JDKPATH"
+        echo "DB IP Address: $DBIPADDR"
+        echo "DB Port: $DBPORT"
+        echo "DB User: $DBUSER"
+#       echo "DB User Password: $DBPASS"
+}
+
+writetofile()
+{
+	echo $NNIPADDRESS > /opt/vse/.license/.vDoop_inputs
+	echo $JDKPATH >> /opt/vse/.license/.vDoop_inputs
+	echo $DBIPADDR >> /opt/vse/.license/.vDoop_inputs
+	echo $DBPORT >> /opt/vse/.license/.vDoop_inputs
+	echo $DBUSER >> /opt/vse/.license/.vDoop_inputs
+	echo $DBPASS >> /opt/vse/.license/.vDoop_inputs
+
+#create .pgpass file in home directory for subsequent user authentication to postgres
+	mv ~/.pgpass ~/.pgpass.bak 2>/dev/null
+	echo "#hostname:port:database:username:password" > ~/.pgpass
+	echo "*:*:*:${DBUSER}:${DBPASS}" >> ~/.pgpass
+	chmod 0600 ~/.pgpass
 }
 
 createinvokeconfigurevstore()
@@ -94,8 +104,14 @@ writehdbsparameters()
 
 readinputs
 inputsummary
+writetofile
 
-writehdbsparameters
+#writehdbsparameters
+echo "DB Paramters ${DBUSER} ${DBPASS} ${DBIPADDR} ${DBPORT}"
+
+psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} < /opt/vse/sbin/setup_metastore_pg.sql >/dev/null
+psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} -d metastore < /opt/vse/sbin/hive-schema-0.13.0.postgres.sql >/dev/null
+psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} -d metastore < /opt/vse/sbin/grant-privs_pg.sql >/dev/null
 
 createinvokeconfigurevstore
 chmod 755 $TEMPINVOKECONFIGVSTORE

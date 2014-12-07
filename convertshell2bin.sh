@@ -20,7 +20,8 @@ find . -name "*.x" -print | cpio -puavd ../${BINDIR}
 find . -name "*.c" -print | xargs \rm -rf
 find . -name "*.x" -print | xargs \rm -rf
 cd ..
-find ${BINDIR} -name "*.x" -print | xargs rename .sh.x .sh 
+#find ${BINDIR} -name "*.x" -print | xargs rename .sh.x .sh 
+find ${BINDIR} -name "*.x" -print | xargs rename 's/\.sh\.x$/\.sh/'
 mv ${BINDIR} ${SRCDIR}
 
 \rm -rf /tmp/jarlist$$
