@@ -57,6 +57,7 @@ cp ~/.pgpass.bak ~/.pgpass 2>/dev/null
 \rm -rf /opt/vse/*hcatalog*
 \rm -rf /opt/vse/*hive*
 \rm -rf /opt/vse/*zookeeper*
+\rm -rf /opt/vse/*sqoop*
 \rm -rf /opt/vse/disk*
 \rm -rf /opt/vse/logs
 \rm -rf /opt/vse/.license/.vDoop_inputs

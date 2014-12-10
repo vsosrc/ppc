@@ -18,6 +18,15 @@ source /opt/vse/sbin/.bashrc
 #configure Hive
 /opt/vse/sbin/_configure_hive.sh $NNIPADDRESS $JAVAHOME $DBIPADDR $DBPORT
 
+#configure Hbase
+/opt/vse/sbin/_configure_hbase.sh $NNIPADDRESS $JAVAHOME
+
+#configure pig
+/opt/vse/sbin/_configure_pig.sh $JAVAHOME "\/opt\/vse\/hadoop" "\/opt\/vse\/hadoop\/etc\/hadoop" "\/opt\/vse\/hbase" "\/opt\/vse\/hbase\/conf" "\/opt\/vse\/zoo" "\/opt\/vse\/pig" "\/opt\/vse\/pig\/conf" 
+
+#configure sqoop
+/opt/vse/sbin/_configure_sqoop.sh "\/opt\/vse\/hadoop" "\/opt\/vse\/hadoop" "\/opt\/vse\/hbase" "\/opt\/vse\/hive" "\/opt\/vse\/zoo" "\/opt\/vse\/sqoop" "\/opt\/vse\/sqoop\/conf" 
+
 #configure flume with twitter
 #sed -i "s/SED_NMIPADDRESS_FLUME/$NNIPADDRESS/g" /opt/vse/flume/conf/*.conf
 #sed -i "s/SED_FLUME_HOME/\/opt\/vse\/flume/g" /opt/vse/flume/conf/*.sh

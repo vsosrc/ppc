@@ -4,7 +4,7 @@
 # Copyright (c) 2013, 2014 Veristorm Incorporated
 #
 ###########################################################
-_JAVEHOME=$1
+_JAVAHOME=$1
 _HADOOPHOME=$2
 _HADOOPCONFDIR=$3
 _HBASEHOME=$4

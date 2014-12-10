@@ -48,10 +48,13 @@ cd ${RPMDIR}
 #cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
 #cat xaa xab > ./hadoop-2.2.0.tar.gz
 #tar xvf ./hadoop-2.2.0.tar.gz
-cp ${THIRDPARTY}/hadoop/hadoop-2.4.1.tar.gz ${RPMDIR}
+#cp ${THIRDPARTY}/hadoop/hadoop-2.4.1.tar.gz ${RPMDIR}
+cp ${THIRDPARTY}/hadoop/xaa ${RPMDIR}
+cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
+cat xaa xab > ./hadoop-2.4.1.tar.gz
 tar xvf ./hadoop-2.4.1.tar.gz
 rm -f ./hadoop-2.4.1.tar.gz
-#rm -f ./xaa ./xab
+rm -f ./xaa ./xab
 
 #patch os.arch for x86 in hadoop config files
 if [ $PLATFORM = "x86" ]
@@ -68,6 +71,34 @@ then
 	cp ${THIRDPARTY}/hive/config_x86/* ${RPMDIR}/apache-hive-0.13.0-bin/conf
 fi
 
+#creating hbase distro
+cp ${THIRDPARTY}/hbase/hbase-0.98.0-bin.tar.gz ${RPMDIR}
+tar xvf ./hbase-0.98.0-bin.tar.gz
+rm -f ./hbase-0.98.0-bin.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/hbase/config/* ${RPMDIR}/hbase-0.98.0/conf
+fi
+
+#creating pig distro
+cp ${THIRDPARTY}/pig/pig-0.14.0.tar.gz ${RPMDIR}
+tar xvf ./pig-0.14.0.tar.gz
+rm -f ./pig-0.14.0.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/pig/config_x86/* ${RPMDIR}/pig-0.14.0/conf
+fi
+
+#creating sqoop distro
+cp ${THIRDPARTY}/sqoop/sqoop-1.4.4.bin__hadoop-2.4.1.tar.gz ${RPMDIR}
+tar xvf ./sqoop-1.4.4.bin__hadoop-2.4.1.tar.gz
+rm -f ./sqoop-1.4.4.bin__hadoop-2.4.1.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/sqoop/config_x86/* ${RPMDIR}/sqoop-1.4.4.bin__hadoop-2.4.1/conf
+fi
+
+#creating flume distro
 #creating flume distro
 #cp ${THIRDPARTYHDP}/flume/apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz ${RPMDIR}
 #tar xvf ./apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz
