@@ -1,6 +1,6 @@
-1- ambari-server_1.6.1-1.tar.gz should be copied to / and untarred as root.
+1- run "_ambariserver_preinst"
 
-2- run "_ambariserver_presint"
+2- ambari-server_1.6.1-1.tar.gz should be copied to / and untarred as root.
 
 3- run "_ambariserver_postinst configure"
 
