@@ -6,6 +6,7 @@
 ###########################################################
 #!/bin/sh
 NNIPADDRESS=""
+NNPORT="8020"
 JDKPATH=""
 CONFIGUREVSTOREEXEC="/opt/vse/sbin/configure_ppcvstore.sh"
 TEMPINVOKECONFIGVSTORE="/opt/vse/sbin/invokeconfigure_ppcvstore.sh"
@@ -24,6 +25,8 @@ readinputs()
 {
 	echo -n "Please enter NameNode IPAdress: "
 	read NNIPADDRESS
+	echo -n "Please enter NameNode Port: "
+	read NNPORT
 	#NNIPADDRESS=$IPADDRESS
 	echo -n "Please enter JDK Path: "
 	read JDKPATH
@@ -45,6 +48,7 @@ inputsummary()
 {
 	echo "Summary"
 	echo "NameNode IPAdress: $NNIPADDRESS"
+	echo "NameNode Port: $NNPORT"
 	echo "JDK Path: $JDKPATH"
         echo "DB IP Address: $DBIPADDR"
         echo "DB Port: $DBPORT"
@@ -55,6 +59,7 @@ inputsummary()
 writetofile()
 {
 	echo $NNIPADDRESS > /opt/vse/.license/.vDoop_inputs
+	echo $NNPORT > /opt/vse/.license/.vDoop_inputs
 	echo $JDKPATH >> /opt/vse/.license/.vDoop_inputs
 	echo $DBIPADDR >> /opt/vse/.license/.vDoop_inputs
 	echo $DBPORT >> /opt/vse/.license/.vDoop_inputs
@@ -71,13 +76,14 @@ writetofile()
 createinvokeconfigurevstore()
 {
 	echo "#!/bin/bash" > $TEMPINVOKECONFIGVSTORE
-	echo "$CONFIGUREVSTOREEXEC $NNIPADDRESS $JDKPATH $DBIPADDR $DBPORT" >> $TEMPINVOKECONFIGVSTORE
+	echo "$CONFIGUREVSTOREEXEC $JDKPATH $NNIPADDRESS $NNPORT $DBIPADDR $DBPORT" >> $TEMPINVOKECONFIGVSTORE
 }
 writehdbsparameters()
 {
         l_ZOSDIRECTORY=$(echo $ZOSDIRECTORY | awk '{gsub("/","\\/");print;}')
         l_DATE="`date +%F`"
         sed -i "s/SED_NNIP/$NNIPADDRESS/g" $INPUTFILE_HDB
+        sed -i "s/SED_NNPORT/$NNPORT/g" $INPUTFILE_HDB
         sed -i "s/SED_HADUSER/root/g" $INPUTFILE_HDB
         if [ -z "$HADPASSWD" ]
         then

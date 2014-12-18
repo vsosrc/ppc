@@ -12,6 +12,8 @@ export YARN_HOME=/opt/vse/hadoop
 export PIG_HOME=/opt/vse/pig
 export HIVE_HOME=/opt/vse/hive
 export FLUME_HOME=/opt/vse/flume
+export HBASE_HOME=/opt/vse/hbase
+export SQOOP_HOME=/opt/vse/sqoop
 
 export VSE_WEBHOME=/webapps/vse
 export VSE_HOME=/opt/vse
@@ -19,6 +21,12 @@ export TWITTER_HOME=/opt/vse/twitter
 export VSE_LICENSE=/opt/vse/.license
 export VSE_CATALOG=/opt/vse/webapps/vse/WEB-SOURCE/vse_nls
 
+export HBASE_CONF_DIR=/opt/vse/hbase/conf
+export HADOOP_JAR=/opt/vse/hadoop/share/hadoop
+export HBASE_JAR=/opt/vse/hbase/lib
+export ZOOKEEPER_JAR=/opt/vse/zookeeper/lib
+export PIG_CLASSPATH=${HADOOP_CONF_DIR}:${HBASE_CONF_DIR}:${HADOOP_JAR}:${HBASE_JAR}:${ZOOKEEPER_JAR}
+
 export CLASSPATH=$CLASSPATH:/root/jaxrs-ri/lib/*:/root/jaxrs-ri/ext/*:/opt/vse/lib/*:/opt/vse/lib/postgresql-jdbc.jar:/opt/vse/lib/log4j-1.2.17.jar:/opt/vse/webapps/vse/WEB-INF:
 
-export PATH=$PATH:$VSE_HOME/sbin:$VSE_HOME/lib:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:$HIVE_HOME/bin:$FLUME_HOME/bin
+export PATH=$PATH:$VSE_HOME/sbin:$VSE_HOME/lib:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:$HIVE_HOME/bin:$FLUME_HOME/bin:$HBASE_HOME/bin:$SQOOP_HOME/bin:

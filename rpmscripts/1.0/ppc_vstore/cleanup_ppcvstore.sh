@@ -35,11 +35,12 @@ while read RLINE
 do
         case $counter in
               1) NNIPADDRESS=$RLINE;;
-              2) JDKPATH=$RLINE;;
-              3) DBIPADDR=$RLINE;;
-              4) DBPORT=$RLINE;;
-              5) DBUSER=$RLINE;;
-              6) DBPASS=$RLINE;;
+              2) NNPORT=$RLINE;;
+              3) JDKPATH=$RLINE;;
+              4) DBIPADDR=$RLINE;;
+              5) DBPORT=$RLINE;;
+              6) DBUSER=$RLINE;;
+              7) DBPASS=$RLINE;;
         esac
         counter=`expr $counter + 1`
 done < /opt/vse/.license/.vDoop_inputs

@@ -6,10 +6,11 @@
 ###########################################################
 #!/bin/bash
 
-NNIPADDRESS=$1
-JAVAHOME=$(echo $2 | awk '{gsub("/","\\/");print;}')
-DBIPADDR=$3
-DBPORT=$4
+JAVAHOME=$(echo $1 | awk '{gsub("/","\\/");print;}')
+NNIPADDRESS=$2
+NNPORT=$3
+DBIPADDR=$4
+DBPORT=$5
 
 #configure hadoop
 /opt/vse/sbin/_configure_hadoop.sh $NNIPADDRESS $JAVAHOME
@@ -26,6 +27,9 @@ source /opt/vse/sbin/.bashrc
 
 #configure sqoop
 /opt/vse/sbin/_configure_sqoop.sh "\/opt\/vse\/hadoop" "\/opt\/vse\/hadoop" "\/opt\/vse\/hbase" "\/opt\/vse\/hive" "\/opt\/vse\/zoo" "\/opt\/vse\/sqoop" "\/opt\/vse\/sqoop\/conf" 
+
+#configure flume
+/opt/vse/sbin/_configure_flume.sh "\/opt\/vse\/flume" $NNIPADDRESS $NNPORT
 
 #configure flume with twitter
 #sed -i "s/SED_NMIPADDRESS_FLUME/$NNIPADDRESS/g" /opt/vse/flume/conf/*.conf

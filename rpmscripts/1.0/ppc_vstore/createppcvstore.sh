@@ -99,6 +99,15 @@ then
 fi
 
 #creating flume distro
+cp ${THIRDPARTY}/flume/apache-flume-1.5.0.1-bin.tar.gz ${RPMDIR}
+tar xvf ./apache-flume-1.5.0.1-bin.tar.gz
+rm -f ./apache-flume-1.5.0.1-bin.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/sqoop/config_x86/* ${RPMDIR}/apache-flume-1.5.0.1-bin/conf
+fi
+
+#creating flume distro
 #creating flume distro
 #cp ${THIRDPARTYHDP}/flume/apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz ${RPMDIR}
 #tar xvf ./apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz
