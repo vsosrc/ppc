@@ -21,7 +21,7 @@ info "vStorm Enterpise Store un-installation started" > ${logfile} 2>&1
 echo "cleaning up vStorm Enterprise store..."
 echo "dropping databases..."
 TEMPFILE="/tmp/$RANDOM"
-echo "select pg_terminate_backend(procpid) from pg_stat_activity where datname = 'metastore';" >> ${TEMPFILE}
+#echo "select pg_terminate_backend(procpid) from pg_stat_activity where datname = 'metastore';" >> ${TEMPFILE}
 echo "DROP DATABASE metastore;" >> ${TEMPFILE}
 echo "DROP ROLE hive;" >> ${TEMPFILE}
 NNIPADDRESS=""
@@ -59,6 +59,8 @@ cp ~/.pgpass.bak ~/.pgpass 2>/dev/null
 \rm -rf /opt/vse/*hive*
 \rm -rf /opt/vse/*zookeeper*
 \rm -rf /opt/vse/*sqoop*
+\rm -rf /opt/vse/*avro*
+\rm -rf /opt/vse/*hue*
 \rm -rf /opt/vse/disk*
 \rm -rf /opt/vse/logs
 \rm -rf /opt/vse/.license/.vDoop_inputs

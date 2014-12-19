@@ -57,7 +57,7 @@ rm -f ./hadoop-2.4.1.tar.gz
 rm -f ./xaa ./xab
 
 #patch os.arch for x86 in hadoop config files
-if [ $PLATFORM = "x86" ]
+if [ $PLATFORM = "s390x" ]
 then
 	cp ${THIRDPARTY}/hadoop/config_x86/* ${RPMDIR}/hadoop-2.4.1/etc/hadoop
 fi
@@ -66,7 +66,7 @@ fi
 cp ${THIRDPARTY}/hive/apache-hive-0.13.0-bin.tar.gz ${RPMDIR}
 tar xvf ./apache-hive-0.13.0-bin.tar.gz
 rm -f ./apache-hive-0.13.0-bin.tar.gz
-if [ $PLATFORM = "x86" ]
+if [ $PLATFORM = "s390x" ]
 then
 	cp ${THIRDPARTY}/hive/config_x86/* ${RPMDIR}/apache-hive-0.13.0-bin/conf
 fi
@@ -104,7 +104,27 @@ tar xvf ./apache-flume-1.5.0.1-bin.tar.gz
 rm -f ./apache-flume-1.5.0.1-bin.tar.gz
 if [ $PLATFORM = "s390x" ]
 then
-	cp ${THIRDPARTY}/sqoop/config_x86/* ${RPMDIR}/apache-flume-1.5.0.1-bin/conf
+	cp ${THIRDPARTY}/flume/config_x86/* ${RPMDIR}/apache-flume-1.5.0.1-bin/conf
+fi
+
+#creating avro distro
+cp ${THIRDPARTY}/avro/avro-1.7.4.tar.gz ${RPMDIR}
+tar xvf ./avro-1.7.4.tar.gz
+rm -f ./avro-1.7.4.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/avro/config/* ${RPMDIR}/avro-1.7.4/conf
+fi
+
+#creating hue distro
+cp ${THIRDPARTY}/hue/hue-3.6.0.tar.gz ${RPMDIR}
+tar xvf ./hue-3.6.0.tar.gz
+rm -f ./hue-3.6.0.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/hue/config_x86/* ${RPMDIR}/hue-3.6.0/desktop/conf
+	#needed by MAPRED framework
+	cp ${RPMDIR}/hue-3.6.0/desktop/libs/hadoop/java-lib/hue-plugins-*.jar ${RPMDIR}/hadoop-2.4.1/share/hadoop/mapreduce
 fi
 
 #creating flume distro

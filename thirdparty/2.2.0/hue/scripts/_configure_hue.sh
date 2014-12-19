@@ -21,18 +21,18 @@ _SOLR_ZK_ENSEMBLE_URL=$14 # Zookeeper ensemble.
 _HUE_INSTALL_DIR=$15      # Dir where hue is installed
 
 
-sed -i "s/SED_HUE_IP_ADDRESS/$_HUE_IP_ADDRESS/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HUE_IP_PORT/$_HUE_IP_PORT/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_JOBTRACKER_PORT/$_JOBTRACKER_PORT/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_THRIFT_PORT/$_THRIFT_PORT/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_OOZIE_PORT/$_OOZIE_PORT/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HIVE_SERVER_HOST/$_HIVE_SERVER_HOST/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HIVE_SERVER_PORT/$_HIVE_SERVER_PORT/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HIVE_CONF_DIR/$_HIVE_CONF_DIR/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HIVE_SERVER_BIN/$_HIVE_SERVER_BIN/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HIVE_SQOOP_URL/$_HIVE_SQOOP_URL/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_SOLR_URL/$_SOLR_URL/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_SOLR_CTL_PATH/$_SOLR_CTL_PATH/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_SOLR_HOME/$_SOLR_HOME/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_SOLR_ZK_ENSEMBLE_URL/$_SOLR_ZK_ENSEMBLE_URL/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
-sed -i "s/SED_HUE_INSTALL_DIR/$_HUE_INSTALL_DIR/g" /HUE_INSTALL_DIR/desktop/conf/*.ini
+sed -i "s/SED_HUE_IP_ADDRESS/$_HUE_IP_ADDRESS/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HUE_IP_PORT/$_HUE_IP_PORT/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_JOBTRACKER_PORT/$_JOBTRACKER_PORT/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_THRIFT_PORT/$_THRIFT_PORT/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_OOZIE_PORT/$_OOZIE_PORT/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HIVE_SERVER_HOST/$_HIVE_SERVER_HOST/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HIVE_SERVER_PORT/$_HIVE_SERVER_PORT/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HIVE_CONF_DIR/$_HIVE_CONF_DIR/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HIVE_SERVER_BIN/$_HIVE_SERVER_BIN/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HIVE_SQOOP_URL/$_HIVE_SQOOP_URL/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_SOLR_URL/$_SOLR_URL/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_SOLR_CTL_PATH/$_SOLR_CTL_PATH/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_SOLR_HOME/$_SOLR_HOME/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_SOLR_ZK_ENSEMBLE_URL/$_SOLR_ZK_ENSEMBLE_URL/g" /opt/vse/hue/desktop/conf/*.ini
+sed -i "s/SED_HUE_INSTALL_DIR/$_HUE_INSTALL_DIR/g" /opt/vse/hue/desktop/conf/*.ini
