@@ -36,6 +36,9 @@ source /opt/vse/sbin/.bashrc
 #configure hue
 /opt/vse/sbin/_configure_hue.sh $NNIPADDRESS 98080 8021 9290 oozie_url $NNIPADDRESS 10000 "\/opt\/vse\/hive\/conf" "\/opt\/vse\/hive\/bin" "http://$NNIPADDRESS:12000/sqoop" solr_url solr_ctrl_path "\/opt\/vse\/solr" zk_ensemble_url "\/opt\/vse\/hue"
 
+#configure zookeeper
+/opt/vse/sbin/_configure_zookeeper.sh "\/opt\/vse\/zookeeper\/zoo-ddir"
+
 #configure flume with twitter
 #sed -i "s/SED_NMIPADDRESS_FLUME/$NNIPADDRESS/g" /opt/vse/flume/conf/*.conf
 #sed -i "s/SED_FLUME_HOME/\/opt\/vse\/flume/g" /opt/vse/flume/conf/*.sh

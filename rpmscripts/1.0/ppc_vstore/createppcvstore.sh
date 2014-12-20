@@ -127,6 +127,22 @@ then
 	cp ${RPMDIR}/hue-3.6.0/desktop/libs/hadoop/java-lib/hue-plugins-*.jar ${RPMDIR}/hadoop-2.4.1/share/hadoop/mapreduce
 fi
 
+#creating zookeeper distro
+cp ${THIRDPARTY}/zookeeper/zookeeper-3.4.5.tar.gz ${RPMDIR}
+tar xvf ./zookeeper-3.4.5.tar.gz
+rm -f ./zookeeper-3.4.5.tar.gz
+#dependent zookeeper tars
+cp ${THIRDPARTY}/zookeeper/zookeeper-3.4.5-bin.tar.gz ${RPMDIR}
+tar xvf ./zookeeper-3.4.5-bin.tar.gz
+rm -f ./zookeeper-3.4.5-bin.tar.gz
+cp ${THIRDPARTY}/zookeeper/zookeeper-3.4.5-lib.tar.gz ${RPMDIR}
+tar xvf ./zookeeper-3.4.5-lib.tar.gz
+rm -f ./zookeeper-3.4.5-lib.tar.gz
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/zookeeper/config_x86/* ${RPMDIR}/zookeeper-3.4.5/conf
+fi
+
 #creating flume distro
 #creating flume distro
 #cp ${THIRDPARTYHDP}/flume/apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz ${RPMDIR}
