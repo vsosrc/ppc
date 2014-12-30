@@ -23,4 +23,4 @@
 #JAVA_OPTS="-Xms100m -Xmx200m -Dcom.sun.management.jmxremote"
 
 # Note that the Flume conf directory is always included in the classpath.
-FLUME_CLASSPATH="$SED_FLUMEHOME/conf:$SED_FLUMEHOME/lib/*:"
+FLUME_CLASSPATH="/opt/vse/flume/conf:/opt/vse/flume/lib/*:"
