@@ -12,7 +12,7 @@ _ZOOCONFDIR=$5
 _SQOOPHOME=$6
 _SQOOPCONFDIR=$7
 
-sed -i "s/SED_HADOOP_COMM_HOME/$_HADOOPCOMMONHOME/g" /opt/vse/sqoop/conf/*.sh
+sed -i "s/SED_HADOOP_COMMON_HOME/$_HADOOPCOMMONHOME/g" /opt/vse/sqoop/conf/*.sh
 sed -i "s/SED_HADOOP_MAPRED_HOME/$_HADOOPMAPREDHOME/g" /opt/vse/sqoop/conf/*.sh
 sed -i "s/SED_HBASE_HOME/$_HBASEHOME/g" /opt/vse/sqoop/conf/*.sh
 sed -i "s/SED_HIVE_HOME/$_HIVEHOME/g" /opt/vse/sqoop/conf/*.sh

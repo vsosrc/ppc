@@ -39,6 +39,9 @@ source /opt/vse/sbin/.bashrc
 #configure zookeeper
 /opt/vse/sbin/_configure_zookeeper.sh "\/opt\/vse\/zookeeper\/zoo-ddir"
 
+#configure solr
+/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "\/opt\/vse\/solr\/solr-ddir"
+
 #configure flume with twitter
 #sed -i "s/SED_NMIPADDRESS_FLUME/$NNIPADDRESS/g" /opt/vse/flume/conf/*.conf
 #sed -i "s/SED_FLUME_HOME/\/opt\/vse\/flume/g" /opt/vse/flume/conf/*.sh

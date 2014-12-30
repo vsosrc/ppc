@@ -80,6 +80,7 @@ cp ./thirdparty/2.2.0/flume/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/avro/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/hue/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/zookeeper/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/2.2.0/solr/scripts/_* ./rpmscripts/1.0/ppc_vstore
 
 sh makerpmscripts.sh $buildhost $rootuser $rootpass $rpath $platform
 echo "Waiting"

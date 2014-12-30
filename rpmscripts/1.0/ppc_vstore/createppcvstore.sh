@@ -143,7 +143,21 @@ then
 	cp ${THIRDPARTY}/zookeeper/config_x86/* ${RPMDIR}/zookeeper-3.4.5/conf
 fi
 
-#creating flume distro
+#creating solr distro
+cp ${THIRDPARTY}/solr/split/xaa ${RPMDIR}
+cp ${THIRDPARTY}/solr/split/xab ${RPMDIR}
+cat xaa xab > ./solr-4.8-SNAPSHOT.tar.gz
+tar xvf ./solr-4.8-SNAPSHOT.tar.gz
+rm -f ./solr-4.8-SNAPSHOT.tar.gz
+rm -f ./xaa ./xab
+
+#patch os.arch for x86 in hadoop config files
+if [ $PLATFORM = "s390x" ]
+then
+	echo "Need a way to figure out where to put solr.xml file in webapps"
+#	cp ${THIRDPARTY}/solr/config_x86/* ${RPMDIR}/
+fi
+
 #creating flume distro
 #cp ${THIRDPARTYHDP}/flume/apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz ${RPMDIR}
 #tar xvf ./apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz
