@@ -71,6 +71,7 @@ $z_base/$z_hadoop/bin/hadoop fs -chmod -R 755 /tmp
 $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/flume/tweets >/dev/null 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -chown -R flume:flume /user/flume >/dev/null 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >/dev/null 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >/dev/null 2>&1
 
 echo " Starting Hive..."
 $z_base/$z_hive/bin/hive --service hiveserver2 >/dev/null 2>&1 &

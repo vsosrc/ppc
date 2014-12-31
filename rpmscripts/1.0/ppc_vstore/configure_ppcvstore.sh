@@ -11,6 +11,7 @@ NNIPADDRESS=$2
 NNPORT=$3
 DBIPADDR=$4
 DBPORT=$5
+WEBAPPS_DIR=$6
 
 #configure hadoop
 /opt/vse/sbin/_configure_hadoop.sh $NNIPADDRESS $JAVAHOME
@@ -40,21 +41,4 @@ source /opt/vse/sbin/.bashrc
 /opt/vse/sbin/_configure_zookeeper.sh "\/opt\/vse\/zookeeper\/zoo-ddir"
 
 #configure solr
-/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "\/opt\/vse\/solr\/solr-ddir"
-
-#configure flume with twitter
-#sed -i "s/SED_NMIPADDRESS_FLUME/$NNIPADDRESS/g" /opt/vse/flume/conf/*.conf
-#sed -i "s/SED_FLUME_HOME/\/opt\/vse\/flume/g" /opt/vse/flume/conf/*.sh
-#configure hbase
-#sed -i "s/SED_JAVA_HOME/$JAVAHOME/g" /opt/vse/hbase-0.96.0.2.0.6.0-76-hadoop2/conf/*.sh
-#sed -i "s/SED_NMIPADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/hbase-0.96.0.2.0.6.0-76-hadoop2/conf/regionservers
-#sed -i "s/SED_NMIPADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/hbase-0.96.0.2.0.6.0-76-hadoop2/conf/*.xml
-#sed -i "s/SED_MASTERBINDADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/hbase-0.96.0.2.0.6.0-76-hadoop2/conf/*.xml
-#sed -i "s/SED_ZOOKEEPERQUORUM_HBASE/$NNIPADDRESS/g" /opt/vse/hbase-0.96.0.2.0.6.0-76-hadoop2/conf/*.xml
-#configure zookeeper
-#sed -i "s/SED_JAVA_HOME/$JAVAHOME/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/*.sh
-#sed -i "s/SED_NMIPADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/regionservers
-#sed -i "s/SED_NMIPADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/*.xml
-#sed -i "s/SED_MASTERBINDADDRESS_HBASE/$NNIPADDRESS/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/*.xml
-#sed -i "s/SED_ZOOKEEPERQUORUM_HBASE/$NNIPADDRESS/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/*.xml
-#sed -i "s/SED_ZKSERVERHOSTNAME/$NNIPADDRESS/g" /opt/vse/zookeeper-3.4.5.2.0.6.0-76/conf/zoo.cfg
+/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "user\/solr\/solr-ddir" ${WEBAPPS_DIR}

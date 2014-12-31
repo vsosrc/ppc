@@ -18,7 +18,7 @@ ln -s /opt/vse/zookeeper-3.4.5 /opt/vse/zookeeper
 ln -s /opt/vse/solr-4.8-SNAPSHOT /opt/vse/solr
 
 #postgres driver needed for sqoop
-cp /opt/vse/lib/postgresql-jdbc.jar /opt/vse/sqoop/lib
+cp /opt/vse/hive/lib/postgresql-jdbc.jar /opt/vse/sqoop/lib
 
 /opt/vse/sbin/message_ppcvstore.sh
 \rm -f /opt/vse/sbin/message_ppcvstore.sh

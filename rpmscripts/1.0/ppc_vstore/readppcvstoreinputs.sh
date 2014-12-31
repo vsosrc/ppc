@@ -12,6 +12,7 @@ CONFIGUREVSTOREEXEC="/opt/vse/sbin/configure_ppcvstore.sh"
 TEMPINVOKECONFIGVSTORE="/opt/vse/sbin/invokeconfigure_ppcvstore.sh"
 FORMATVSTOREEXEC="/opt/vse/sbin/format_ppcvstore.sh"
 INPUTFILE_HDB="/opt/vse/sbin/.hadoopdb.sql"
+WEBAPPSHOME=""
 HADPASSWD=""
 HIVEUSER="hive"
 HIVEPASSWD="hive"
@@ -31,6 +32,8 @@ readinputs()
 	echo -n "Please enter JDK Path: "
 	read JDKPATH
 	#JDKPATH="/opt/vse/java/jre"
+        echo -n "Please enter WebApps Home: "
+        read WEBAPPSHOME
         echo -n "Please enter DB IP Address: "
         read DBIPADDR
         echo -n "Please enter DB Port: "
@@ -50,6 +53,7 @@ inputsummary()
 	echo "NameNode IPAdress: $NNIPADDRESS"
 	echo "NameNode Port: $NNPORT"
 	echo "JDK Path: $JDKPATH"
+        echo "WebApps Home: $WEBAPPSHOME"
         echo "DB IP Address: $DBIPADDR"
         echo "DB Port: $DBPORT"
         echo "DB User: $DBUSER"
@@ -76,7 +80,7 @@ writetofile()
 createinvokeconfigurevstore()
 {
 	echo "#!/bin/bash" > $TEMPINVOKECONFIGVSTORE
-	echo "$CONFIGUREVSTOREEXEC $JDKPATH $NNIPADDRESS $NNPORT $DBIPADDR $DBPORT" >> $TEMPINVOKECONFIGVSTORE
+	echo "$CONFIGUREVSTOREEXEC $JDKPATH $NNIPADDRESS $NNPORT $DBIPADDR $DBPORT $WEBAPPSHOME" >> $TEMPINVOKECONFIGVSTORE
 }
 writehdbsparameters()
 {

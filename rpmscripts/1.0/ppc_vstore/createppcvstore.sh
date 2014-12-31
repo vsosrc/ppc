@@ -154,46 +154,8 @@ rm -f ./xaa ./xab
 #patch os.arch for x86 in hadoop config files
 if [ $PLATFORM = "s390x" ]
 then
-	echo "Need a way to figure out where to put solr.xml file in webapps"
-#	cp ${THIRDPARTY}/solr/config_x86/* ${RPMDIR}/
+	cp ${THIRDPARTY}/solr/config_x86/* ${RPMDIR}/solr-4.8-SNAPSHOT/example/solr/collection1/conf
 fi
-
-#creating flume distro
-#cp ${THIRDPARTYHDP}/flume/apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz ${RPMDIR}
-#tar xvf ./apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz
-#rm -f ./apache-flume-1.4.0.2.0.6.0-76-bin.tar.gz
-#if [ $PLATFORM = "x86" ]
-#then
-#	cp ${THIRDPARTYHDP}/flume/config_x86/* ${RPMDIR}/apache-flume-1.4.0.2.0.6.0-76-bin/conf
-#fi
-
-#creating pig distro
-#cp ${THIRDPARTY}/pig/* ${RPMDIR}
-#tar xvf ./pig-0.12.0.tar.gz
-#rm -f ./pig-0.12.0.tar.gz
-
-#cp ${THIRDPARTYHDP}/pig/pig-0.12.0.2.0.6.0-76.tar.gz ${RPMDIR}
-#tar xvf ./pig-0.12.0.2.0.6.0-76.tar.gz
-#rm -f ./pig-0.12.0.2.0.6.0-76.tar.gz
-#if [ $PLATFORM = "x86" ]
-#then
-#	cp ${THIRDPARTYHDP}/pig/config_x86/* ${RPMDIR}/pig-0.12.0.2.0.6.0-76/conf
-#fi
-
-#creating hbase distro
-#cp ${THIRDPARTY}/hbase/* ${RPMDIR}
-#tar xvf ./hbase-0.96.0.2.0.6.0-76-hadoop2.tar.gz
-#rm -f ./hbase-0.96.0.2.0.6.0-76-hadoop2.tar.gz
-
-#creating hcatalog distro
-#cp ${THIRDPARTY}/hcatalog/* ${RPMDIR}
-#tar xvf ./hcatalog-0.12.0.2.0.6.0-76.tar.gz
-#rm -f ./hcatalog-0.12.0.2.0.6.0-76.tar.gz
-
-#creating zookeeper distro
-#cp ${THIRDPARTY}/zookeeper/* ${RPMDIR}
-#tar xvf ./zookeeper-3.4.5.2.0.6.0-76.tar.gz
-#rm -f ./zookeeper-3.4.5.2.0.6.0-76.tar.gz
 
 sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n ppc-vstore -v 2.2 -a native --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 
