@@ -26,6 +26,8 @@ echo " Starting Hadoop..."
 z_base="/opt/vse"
 z_hadoop="hadoop"
 z_hive="hive"
+z_zookeeper="zookeeper"
+z_hbase="hbase"
 
 checksafemode()
 {
@@ -73,6 +75,16 @@ $z_base/$z_hadoop/bin/hadoop fs -chown -R flume:flume /user/flume >/dev/null 2>&
 $z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >/dev/null 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >/dev/null 2>&1
 
+echo " Starting Metastore..."
+$z_base/$z_hive/bin/hive --service metastore >/dev/null 2>&1 &
+
 echo " Starting Hive..."
 $z_base/$z_hive/bin/hive --service hiveserver2 >/dev/null 2>&1 &
+
+echo " Starting Zookeeper"
+$z_base/$z_zookeeper/bin/zkServer.sh start &
+
+echo " Starting HBase"
+$z_base/$z_hbase/bin/start-hbase.sh &
+
 echo " done..."
