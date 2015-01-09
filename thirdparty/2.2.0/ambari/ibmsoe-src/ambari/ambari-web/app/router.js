@@ -255,6 +255,7 @@ App.Router = Em.Router.extend({
 
   loginGetClustersSuccessCallback: function (clustersData, opt, params) {
     var adminViewUrl = '/views/ADMIN_VIEW/1.0.0/INSTANCE/#/';
+    //var adminViewUrl = '/#/installer/step0";
     //TODO: Replace hard coded value with query. Same in templates/application.hbs
     var loginController = this.get('loginController');
     var loginData = params.loginData;
