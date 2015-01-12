@@ -44,13 +44,13 @@ if rpm_version is not None:
   region_drainer = format('/usr/hdp/{rpm_version}hbase/bin/draining_servers.rb')
   hbase_cmd = format('/usr/hdp/{rpm_version}/hbase/bin/hbase')
 else:
-  hadoop_conf_dir = "/etc/hadoop/conf"
-  hadoop_bin_dir = "/usr/bin"
-  hbase_conf_dir = "/etc/hbase/conf"
-  daemon_script = "/usr/lib/hbase/bin/hbase-daemon.sh"
-  region_mover = "/usr/lib/hbase/bin/region_mover.rb"
-  region_drainer = "/usr/lib/hbase/bin/draining_servers.rb"
-  hbase_cmd = "/usr/lib/hbase/bin/hbase"
+  hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
+  hadoop_bin_dir = "/opt/vse/hadoop/bin"
+  hbase_conf_dir = "/opt/vse/hbase/conf"
+  daemon_script = "/opt/vse/hbase/bin/hbase-daemon.sh"
+  region_mover = "/opt/vse/hbase/bin/region_mover.rb"
+  region_drainer = "/opt/vse/hbase/bin/draining_servers.rb"
+  hbase_cmd = "/opt/vse/hbase/bin/hbase"
 
 hbase_excluded_hosts = config['commandParams']['excluded_hosts']
 hbase_drain_only = config['commandParams']['mark_draining_only']

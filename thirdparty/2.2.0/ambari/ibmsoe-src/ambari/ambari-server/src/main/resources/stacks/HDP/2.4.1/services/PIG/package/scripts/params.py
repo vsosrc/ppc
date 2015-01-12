@@ -36,11 +36,11 @@ if rpm_version is not None:
   pig_conf_dir = format('/usr/hdp/{rpm_version}/etc/pig/conf')
   pig_bin_dir = format('/usr/hdp/{rpm_version}/pig/bin')
 else:
-  hadoop_conf_dir = "/etc/hadoop/conf"
-  hadoop_bin_dir = "/usr/bin"
-  hadoop_home = '/usr'
-  pig_conf_dir = "/etc/pig/conf"
-  pig_bin_dir = ""
+  hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
+  hadoop_bin_dir = "/opt/vse/hadoop/bin"
+  hadoop_home = '/opt/vse/hadoop'
+  pig_conf_dir = "/opt/vse/pig/conf"
+  pig_bin_dir = "/opt/vse/pig/bin"
 
 hdfs_user = config['configurations']['hadoop-env']['hdfs_user']
 hdfs_principal_name = config['configurations']['hadoop-env']['hdfs_principal_name']

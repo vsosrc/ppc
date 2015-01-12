@@ -27,7 +27,8 @@ from hbase_service import hbase_service
          
 class HbaseRegionServer(Script):
   def install(self, env):
-    self.install_packages(env)
+    #self.install_packages(env)
+    sys.exit(0)
     
   def configure(self, env):
     import params

@@ -25,8 +25,7 @@ from hive import hive
 class HiveClient(Script):
   def install(self, env):
     import params
-    self.install_packages(env, exclude_packages=params.hive_exclude_packages)
-    self.configure(env)
+    sys.exit(0)
 
   def configure(self, env):
     import params

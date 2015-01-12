@@ -53,7 +53,7 @@
   </property>
    <property>
     <name>hbase_user</name>
-    <value>hbase</value>
+    <value>root</value>
     <property-type>USER</property-type>
     <description>HBase User Name.</description>
   </property>
@@ -82,7 +82,7 @@ export HBASE_CLASSPATH=${HBASE_CLASSPATH}
 # For more on why as well as other possible settings,
 # see http://wiki.apache.org/hadoop/PerformanceTuning
 export HBASE_OPTS="-XX:+UseConcMarkSweepGC -XX:ErrorFile={{log_dir}}/hs_err_pid%p.log"
-export SERVER_GC_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:{{log_dir}}/gc.log-`date +'%Y%m%d%H%M'`"
+export SERVER_GC_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps"
 # Uncomment below to enable java garbage collection logging.
 # export HBASE_OPTS="$HBASE_OPTS -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$HBASE_HOME/logs/gc-hbase.log"
 

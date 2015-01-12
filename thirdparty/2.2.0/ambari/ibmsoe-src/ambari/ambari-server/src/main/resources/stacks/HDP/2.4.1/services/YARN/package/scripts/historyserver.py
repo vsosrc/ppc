@@ -26,7 +26,7 @@ from service import service
 
 class HistoryServer(Script):
   def install(self, env):
-    self.install_packages(env)
+    sys.exit(0)
 
   def configure(self, env):
     import params

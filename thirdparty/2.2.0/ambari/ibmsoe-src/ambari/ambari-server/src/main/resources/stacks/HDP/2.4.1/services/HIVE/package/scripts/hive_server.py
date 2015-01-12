@@ -27,7 +27,8 @@ class HiveServer(Script):
 
   def install(self, env):
     import params
-    self.install_packages(env, exclude_packages=params.hive_exclude_packages)
+    import sys
+    sys.exit(0)
 
   def configure(self, env):
     import params
@@ -40,7 +41,7 @@ class HiveServer(Script):
     env.set_params(params)
     self.configure(env) # FOR SECURITY
     
-    install_tez_jars() # Put tez jars in hdfs
+    #install_tez_jars() # Put tez jars in hdfs
 
     hive_service( 'hiveserver2',
                   action = 'start'

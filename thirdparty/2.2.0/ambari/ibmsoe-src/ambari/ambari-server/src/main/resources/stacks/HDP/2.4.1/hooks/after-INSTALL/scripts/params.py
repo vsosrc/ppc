@@ -32,10 +32,10 @@ if rpm_version is not None:
   mapreduce_libs_path = format("/usr/hdp/{rpm_version}/hadoop-mapreduce/*")
   hadoop_libexec_dir = format("/usr/hdp/{rpm_version}/hadoop/libexec")
 else:
-  hadoop_conf_dir = "/etc/hadoop/conf"
-  hadoop_conf_empty_dir = "/etc/hadoop/conf.empty"
-  mapreduce_libs_path = "/usr/lib/hadoop-mapreduce/*"
-  hadoop_libexec_dir = "/usr/lib/hadoop/libexec"
+  hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
+  hadoop_conf_empty_dir = "/opt/vse/hadoop/etc/hadoop"
+  mapreduce_libs_path = "/opt/vse/hadoop/share/hadoop/mapreduce/*"
+  hadoop_libexec_dir = "/opt/vse/hadoop/libexec"
 
 #security params
 security_enabled = config['configurations']['cluster-env']['security_enabled']

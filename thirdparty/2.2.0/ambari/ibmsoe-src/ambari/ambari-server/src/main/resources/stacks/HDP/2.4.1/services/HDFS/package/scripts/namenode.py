@@ -32,11 +32,13 @@ from datetime import datetime
 class NameNode(Script):
   def install(self, env):
     import params
+    import sys
 
-    self.install_packages(env, params.exclude_packages)
-    env.set_params(params)
+    sys.exit(0)
+    #self.install_packages(env, params.exclude_packages)
+    #env.set_params(params)
     #TODO we need this for HA because of manual steps
-    self.configure(env)
+    #self.configure(env)
 
   def start(self, env):
     import params

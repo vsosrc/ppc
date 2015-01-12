@@ -24,8 +24,7 @@ from hcat import hcat
 
 class HCatClient(Script):
   def install(self, env):
-    self.install_packages(env)
-    self.configure(env)
+    sys.exit(0)
 
   def configure(self, env):
     import params

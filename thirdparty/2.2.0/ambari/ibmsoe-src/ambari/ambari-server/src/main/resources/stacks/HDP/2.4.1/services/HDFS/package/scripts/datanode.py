@@ -25,9 +25,9 @@ from hdfs import hdfs
 class DataNode(Script):
   def install(self, env):
     import params
-    import subprocess
+    import sys
 
-    subprocess.call(['/tmp/x.sh'])
+    sys.exit(0)
     #self.install_packages(env, params.exclude_packages)
     #env.set_params(params)
 

@@ -26,6 +26,8 @@ from webhcat_service import webhcat_service
 
 class WebHCatServer(Script):
   def install(self, env):
+    import sys
+    sys.exit(0)
     self.install_packages(env)
   def configure(self, env):
     import params

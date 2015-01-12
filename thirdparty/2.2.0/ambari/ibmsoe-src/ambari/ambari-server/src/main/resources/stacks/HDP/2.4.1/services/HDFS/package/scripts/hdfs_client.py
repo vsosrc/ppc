@@ -25,10 +25,12 @@ from utils import service
 class HdfsClient(Script):
   def install(self, env):
     import params
+    import sys
 
-    self.install_packages(env, params.exclude_packages)
-    env.set_params(params)
-    self.config(env)
+    sys.exit(0)
+    #self.install_packages(env, params.exclude_packages)
+    #env.set_params(params)
+    #self.config(env)
 
   def start(self, env):
     import params

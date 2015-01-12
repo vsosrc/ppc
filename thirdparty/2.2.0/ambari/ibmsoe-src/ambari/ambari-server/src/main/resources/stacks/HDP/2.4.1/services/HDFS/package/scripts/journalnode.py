@@ -25,9 +25,11 @@ from hdfs import hdfs
 class JournalNode(Script):
   def install(self, env):
     import params
-
-    self.install_packages(env, params.exclude_packages)
-    env.set_params(params)
+    import sys
+    
+    sys.exit(0)
+    #self.install_packages(env, params.exclude_packages)
+    #env.set_params(params)
 
   def start(self, env):
     import params

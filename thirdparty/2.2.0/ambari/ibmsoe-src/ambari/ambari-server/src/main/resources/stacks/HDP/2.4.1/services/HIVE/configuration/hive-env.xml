@@ -23,19 +23,19 @@
 <configuration>
   <property>
     <name>hive_database_type</name>
-    <value>mysql</value>
+    <value>postgresql</value>
     <description>Default HIVE DB type.</description>
   </property>
   <property>
     <name>hive_database</name>
-    <value>New MySQL Database</value>
+    <value>New PGSQL Database</value>
     <description>
       Property that determines whether the HIVE DB is managed by Ambari.
     </description>
   </property>
   <property>
     <name>hive_ambari_database</name>
-    <value>MySQL</value>
+    <value>Postgresql</value>
     <description>Database type.</description>
   </property>
   <property>
@@ -45,7 +45,7 @@
   </property>
   <property>
     <name>hive_dbroot</name>
-    <value>/usr/lib/hive/lib/</value>
+    <value>/opt/vse/hive/lib/</value>
     <description>Hive DB Directory.</description>
   </property>
   <property>
@@ -60,7 +60,7 @@
   </property>
   <property>
     <name>hive_user</name>
-    <value>hive</value>
+    <value>root</value>
     <property-type>USER</property-type>
     <description>Hive User.</description>
   </property>
@@ -79,13 +79,13 @@
   </property>
   <property>
     <name>hcat_user</name>
-    <value>hcat</value>
+    <value>root</value>
     <property-type>USER</property-type>
     <description>HCat User.</description>
   </property>
   <property>
     <name>webhcat_user</name>
-    <value>hcat</value>
+    <value>root</value>
     <property-type>USER</property-type>
     <description>WebHCat User.</description>
   </property>

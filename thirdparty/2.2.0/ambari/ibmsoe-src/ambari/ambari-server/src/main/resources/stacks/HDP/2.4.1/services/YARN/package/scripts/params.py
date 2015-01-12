@@ -43,16 +43,16 @@ if rpm_version is not None:
   yarn_bin = format('/usr/hdp/{rpm_version}/hadoop-yarn/sbin')
   yarn_container_bin = format('/usr/hdp/{rpm_version}/hadoop-yarn/bin')
 else:
-  hadoop_conf_dir = "/etc/hadoop/conf"
-  hadoop_libexec_dir = "/usr/lib/hadoop/libexec"
-  hadoop_bin = "/usr/lib/hadoop/sbin"
-  hadoop_bin_dir = "/usr/bin"
+  hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
+  hadoop_libexec_dir = "/opt/vse/hadoop/libexec"
+  hadoop_bin = "/opt/vse/hadoop/sbin"
+  hadoop_bin_dir = "/opt/vse/hadoop/bin"
   limits_conf_dir = "/etc/security/limits.d"
-  hadoop_yarn_home = '/usr/lib/hadoop-yarn'
-  hadoop_mapred2_jar_location = "/usr/lib/hadoop-mapreduce"
-  mapred_bin = "/usr/lib/hadoop-mapreduce/sbin"
-  yarn_bin = "/usr/lib/hadoop-yarn/sbin"
-  yarn_container_bin = "/usr/lib/hadoop-yarn/bin"
+  hadoop_yarn_home = '/opt/vse/hadoop'
+  hadoop_mapred2_jar_location = "/opt/vse/hadoop/share/hadoop/mapreduce"
+  mapred_bin = "/opt/vse/hadoop/sbin"
+  yarn_bin = "/opt/vse/hadoop/sbin"
+  yarn_container_bin = "/opt/vse/hadoop/bin"
 
 execute_path = os.environ['PATH'] + os.pathsep + hadoop_bin_dir
 

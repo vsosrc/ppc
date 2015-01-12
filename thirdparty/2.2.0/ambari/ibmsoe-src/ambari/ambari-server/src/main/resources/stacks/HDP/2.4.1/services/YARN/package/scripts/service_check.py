@@ -27,7 +27,7 @@ class ServiceCheck(Script):
     import params
     env.set_params(params)
 
-    run_yarn_check_cmd = format("yarn --config {hadoop_conf_dir} node -list")
+    run_yarn_check_cmd = format("/opt/vse/hadoop/bin/yarn --config {hadoop_conf_dir} node -list")
 
     component_type = 'rm'
     if params.hadoop_ssl_enabled:

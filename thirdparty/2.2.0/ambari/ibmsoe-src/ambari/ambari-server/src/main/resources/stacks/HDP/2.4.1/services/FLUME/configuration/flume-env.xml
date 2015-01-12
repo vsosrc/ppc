@@ -23,7 +23,7 @@
 <configuration>
   <property>
     <name>flume_conf_dir</name>
-    <value>/etc/flume/conf</value>
+    <value>/opt/vse/flume/conf</value>
     <description>Location to save configuration files</description>
   </property>
   <property>

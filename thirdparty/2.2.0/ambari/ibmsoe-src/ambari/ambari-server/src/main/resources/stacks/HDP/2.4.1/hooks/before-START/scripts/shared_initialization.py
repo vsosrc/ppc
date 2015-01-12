@@ -31,7 +31,7 @@ def setup_hadoop():
           only_if="test -f /selinux/enforce"
   )
 
-  install_snappy()
+  #install_snappy()
 
   #directories
   if params.has_namenode:

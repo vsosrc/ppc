@@ -27,8 +27,7 @@ from yarn import yarn
 class MapReduce2Client(Script):
 
   def install(self, env):
-    self.install_packages(env)
-    self.configure(env)
+    sys.exit(0)
 
   def configure(self, env):
     import params

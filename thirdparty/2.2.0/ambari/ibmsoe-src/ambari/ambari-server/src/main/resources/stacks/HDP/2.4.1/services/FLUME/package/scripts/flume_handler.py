@@ -25,10 +25,9 @@ from flume import get_desired_state
 
 class FlumeHandler(Script):
   def install(self, env):
-    import params
+    import sys
 
-    self.install_packages(env)
-    env.set_params(params)
+    sys.exit(0)
 
   def start(self, env):
     import params

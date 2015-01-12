@@ -28,17 +28,17 @@ rpm_version = default("/configurations/hadoop-env/rpm_version", None)
 if rpm_version is not None:
   zoo_conf_dir = format('/usr/hdp/{rpm_version}/etc/zookeeper')
 else:
-  zoo_conf_dir = "/etc/zookeeper"
+  zoo_conf_dir = "/opt/vse/zookeeper/conf"
 
 security_enabled = config['configurations']['cluster-env']['security_enabled']
 smokeuser = config['configurations']['cluster-env']['smokeuser']
 user_group = config['configurations']['cluster-env']['user_group']
 sqoop_env_sh_template = config['configurations']['sqoop-env']['content']
 
-sqoop_conf_dir = "/usr/lib/sqoop/conf"
-hbase_home = "/usr"
-hive_home = "/usr"
-sqoop_lib = "/usr/lib/sqoop/lib"
+sqoop_conf_dir = "/opt/vse/sqoop/conf"
+hbase_home = "/opt/vse/hbase"
+hive_home = "/opt/vse/hive"
+sqoop_lib = "/opt/vse/sqoop/lib"
 sqoop_user = config['configurations']['sqoop-env']['sqoop_user']
 
 smoke_user_keytab = config['configurations']['cluster-env']['smokeuser_keytab']

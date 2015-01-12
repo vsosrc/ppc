@@ -19,5 +19,5 @@
 # under the License.
 #
 #
-HIVE_CONF_DIR=$4 hive --service metastore -hiveconf hive.log.file=hivemetastore.log -hiveconf hive.log.dir=$5 > $1 2> $2 &
+HIVE_CONF_DIR=$4 /opt/vse/hive/bin/hive --service metastore -hiveconf hive.log.file=hivemetastore.log -hiveconf hive.log.dir=$5 > $1 2> $2 &
 echo $!|cat>$3

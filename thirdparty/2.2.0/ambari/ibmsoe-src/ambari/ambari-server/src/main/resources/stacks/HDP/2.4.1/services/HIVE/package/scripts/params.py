@@ -53,14 +53,14 @@ if rpm_version is not None:
     hcat_lib = format('/usr/hdp/{rpm_version}/hive/hive-hcatalog/share/hcatalog')
 
 else:
-  hadoop_conf_dir = "/etc/hadoop/conf"
-  hadoop_bin_dir = "/usr/bin"
-  hadoop_home = '/usr'
-  hive_conf_dir = "/etc/hive/conf"
-  hive_bin = '/usr/lib/hive/bin'
-  hive_lib = '/usr/lib/hive/lib/'
-  hive_client_conf_dir = "/etc/hive/conf"
-  hive_server_conf_dir = '/etc/hive/conf.server'
+  hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
+  hadoop_bin_dir = "/opt/vse/hadoop/bin"
+  hadoop_home = '/opt/vse/hadoop'
+  hive_conf_dir = "/opt/vse/hive/conf"
+  hive_bin = '/opt/vse/hive/bin'
+  hive_lib = '/opt/vse/hive/lib/'
+  hive_client_conf_dir = "/opt/vse/hive/conf"
+  hive_server_conf_dir = '/opt/vse/hive/conf'
   tez_local_api_jars = '/usr/lib/tez/tez*.jar'
   tez_local_lib_jars = '/usr/lib/tez/lib/*.jar'
 
@@ -69,8 +69,8 @@ else:
     hcat_lib = '/usr/lib/hcatalog/share/hcatalog'
   # for newer versions
   else:
-    hcat_conf_dir = '/etc/hive-hcatalog/conf'
-    hcat_lib = '/usr/lib/hive-hcatalog/share/hcatalog'
+    hcat_conf_dir = '/opt/vse/hive/hcatalog/etc/hcatalog'
+    hcat_lib = '/opt/vse/hive/hcatalog/share/hcatalog'
 
 execute_path = os.environ['PATH'] + os.pathsep + hive_bin
 hive_metastore_user_name = config['configurations']['hive-site']['javax.jdo.option.ConnectionUserName']
