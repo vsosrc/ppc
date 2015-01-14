@@ -24,7 +24,7 @@
       <comment>Tool for transferring bulk data between Apache Hadoop and
         structured data stores such as relational databases
       </comment>
-      <version>1.4.4.2.0</version>
+      <version>1.4.4</version>
 
       <components>
         <component>
