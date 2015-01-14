@@ -46,7 +46,7 @@ class ExecuteHadoopProvider(Provider):
       if bin_dir is not None:
         path += os.pathsep + bin_dir
 
-      Execute (format("hadoop --config {conf_dir} {command}"),
+      Execute (format("/opt/vse/hadoop/bin/hadoop --config {conf_dir} {command}"),
         user        = self.resource.user,
         tries       = self.resource.tries,
         try_sleep   = self.resource.try_sleep,

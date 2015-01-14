@@ -48,6 +48,9 @@ def execOsCommand(osCommand, tries=1, try_sleep=0):
       
   return ret
 
+def installVDP():
+  Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "ppc-vstore"]
+  return execOsCommand(Command, tries=3, try_sleep=10)
 
 def installAgent(projectVersion):
   """ Run install and make sure the agent install alright """
@@ -56,7 +59,7 @@ def installAgent(projectVersion):
     Command = ["zypper", "--no-gpg-checks", "install", "-y", "ambari-agent-" + projectVersion]
   elif OSCheck.is_ubuntu_family():
     # add * to end of version in case of some test releases
-    Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "ambari-agent=" + projectVersion + "*"]
+    Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "ambari-agent"]
   else:
     Command = ["yum", "-y", "install", "--nogpgcheck", "ambari-agent-" + projectVersion]
   return execOsCommand(Command, tries=3, try_sleep=10)
@@ -215,6 +218,9 @@ def main(argv=None):
       availiableProjectVersion = retcode["log"].strip()
       if not isAgentPackageAlreadyInstalled(availiableProjectVersion):
         ret = installAgent(availiableProjectVersion)
+        if (not ret["exitstatus"] == 0):
+          sys.exit(ret)
+        ret = installVDP()
         if (not ret["exitstatus"] == 0):
           sys.exit(ret)
   elif retcode["exitstatus"] == 1 and retcode["log"][0].strip() != "":

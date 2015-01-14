@@ -329,9 +329,12 @@ class Bootstrap(threading.Thread):
       command = self.getAptUpdateCommand()
       ssh = SSH(params.user, params.sshkey_file, self.host, command,
                 params.bootdir, self.host_log)
-      retcode2 = ssh.run()
+      retcode4 = ssh.run()
       self.host_log.write("\n")
-
+  
+    # Warnings for gpg 
+    if retcode4 == 100:
+      retcode4 = 0
 
 
     self.host_log.write("==========================\n")

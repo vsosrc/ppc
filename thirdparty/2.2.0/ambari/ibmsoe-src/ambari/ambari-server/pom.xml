@@ -30,7 +30,7 @@
     <deb.dependency.list>openssl, postgresql (&gt;= 8.1), ${deb.python.ver}, curl</deb.dependency.list>
     <custom.tests>false</custom.tests>
     <hdpUrlForCentos6>http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.1.1.0</hdpUrlForCentos6>
-    <hdpLatestUrl>http://public-repo-1.hortonworks.com/HDP/hdp_urlinfo.json</hdpLatestUrl>
+    <hdpLatestUrl>http://sovmp171.lop.siteox.com/repos/apt/debian</hdpLatestUrl>
     <ambari_commons.install.dir>/usr/lib/ambari-server/lib/ambari_commons</ambari_commons.install.dir>
     <resource_management.install.dir>/usr/lib/ambari-server/lib/resource_management</resource_management.install.dir>
     <jinja.install.dir>/usr/lib/ambari-server/lib/ambari_jinja2</jinja.install.dir>
@@ -136,9 +136,8 @@
             <exclude>src/main/resources/hive-schema-0.12.0.oracle.sql</exclude>
             <exclude>src/main/resources/db/serial</exclude>
             <exclude>src/main/resources/db/index.txt</exclude>
-            <exclude>src/main/resources/stacks/HDP/2.1.GlusterFS/services/YARN/package/templates/exclude_hosts_list.j2</exclude>
-            <exclude>src/main/resources/stacks/HDP/2.0.6/services/HDFS/package/scripts/balancer-emulator/balancer-err.log</exclude>
-            <exclude>src/main/resources/stacks/HDP/2.0.6/services/HDFS/package/scripts/balancer-emulator/balancer.log</exclude>
+            <exclude>src/main/resources/stacks/VDH/2.4.1/services/HDFS/package/scripts/balancer-emulator/balancer-err.log</exclude>
+            <exclude>src/main/resources/stacks/VDH/2.4.1/services/HDFS/package/scripts/balancer-emulator/balancer.log</exclude>
             <exclude>conf/unix/ca.config</exclude>
             <exclude>conf/unix/krb5JAASLogin.conf</exclude>
             <exclude>**/*.json</exclude>
@@ -151,7 +150,7 @@
             <exclude>src/main/resources/db/newcerts/**</exclude>
 
             <!-- Stack definitions -->
-            <exclude>src/main/resources/stacks/HDP/2.0._/services/HBASE/package/templates/regionservers.j2</exclude>
+            <exclude>src/main/resources/stacks/VDH/2.0._/services/HBASE/package/templates/regionservers.j2</exclude>
 
             <!--test samples -->
             <exclude>src/test/resources/TestAmbaryServer.samples/**</exclude>
@@ -469,10 +468,10 @@
               </sources>
             </mapping>
             <mapping>
-              <directory>/var/lib/ambari-server/resources/stacks/HDP</directory>
+              <directory>/var/lib/ambari-server/resources/stacks/VDH</directory>
               <sources>
                 <source>
-                  <location>target/classes/stacks/HDP</location>
+                  <location>target/classes/stacks/VDH</location>
                 </source>
               </sources>
             </mapping>
@@ -821,11 +820,11 @@
             </mapper>
           </data>
           <data>
-            <src>target/classes/stacks/HDP</src>
+            <src>target/classes/stacks/VDH</src>
             <type>directory</type>
             <mapper>
               <type>perm</type>
-              <prefix>/var/lib/ambari-server/resources/stacks/HDP</prefix>
+              <prefix>/var/lib/ambari-server/resources/stacks/VDH</prefix>
             </mapper>
           </data>
           <data>
