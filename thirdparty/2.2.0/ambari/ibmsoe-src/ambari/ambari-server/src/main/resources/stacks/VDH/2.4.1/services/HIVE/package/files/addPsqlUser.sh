@@ -20,13 +20,14 @@
 #
 #
 
-smokeout=`/opt/vse/hive/bin/beeline -u $1 -n fakeuser -p fakepwd -d org.apache.hive.jdbc.HiveDriver -e '!run $2' 2>&1| awk '{print}'|grep Error`
+mysqldservice=$1
+mysqldbuser=$2
+mysqldbpasswd=$3
+mysqldbhost=$4
+mysqldbname=$5
+myhostname=$(hostname -f)
 
-if [ "x$smokeout" == "x" ]; then
-  echo "Smoke test of hiveserver2 passed"
-  exit 0
-else
-  echo "Smoke test of hiveserver2 wasnt passed"
-  echo $smokeout
-  exit 1
-fi
+echo "Adding user $mysqldbuser@$mysqldbhost"
+psql -U postgres -h $mysqldbhost -c "CREATE DATABASE $mysqldbname;"
+psql -U postgres -h $mysqldbhost -c "CREATE USER $mysqldbuser WITH PASSWORD '$mysqldbpasswd';"
+psql -U postgres -h $mysqldbhost -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO $mysqldbuser;"

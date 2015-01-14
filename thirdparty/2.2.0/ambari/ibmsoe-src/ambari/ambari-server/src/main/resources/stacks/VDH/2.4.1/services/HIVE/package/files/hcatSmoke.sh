@@ -24,13 +24,13 @@ export tablename=$1
 case "$2" in
 
 prepare)
-  hcat -e "show tables"
-  hcat -e "drop table IF EXISTS ${tablename}"
-  hcat -e "create table ${tablename} ( id INT, name string ) stored as rcfile ;"
+  /opt/vse/hive/hcatalog/bin/hcat -e "show tables"
+  /opt/vse/hive/hcatalog/bin/hcat -e "drop table IF EXISTS ${tablename}"
+  /opt/vse/hive/hcatalog/bin/hcat -e "create table ${tablename} ( id INT, name string ) stored as rcfile ;"
 ;;
 
 cleanup)
-  hcat -e "drop table IF EXISTS ${tablename}"
+  /opt/vse/hive/hcatalog/bin/hcat -e "drop table IF EXISTS ${tablename}"
 ;;
 
 esac

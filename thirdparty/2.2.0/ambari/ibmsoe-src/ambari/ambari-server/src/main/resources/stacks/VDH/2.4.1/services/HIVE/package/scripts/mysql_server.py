@@ -35,13 +35,19 @@ class MysqlServer(Script):
     env.set_params(params)
 
     mysql_service(daemon_name=params.daemon_name, action='start')
-
+    """
     File(params.mysql_adduser_path,
          mode=0755,
          content=StaticFile('addMysqlUser.sh')
     )
+    """
+    #ananda changes
+    File(params.mysql_adduser_path,
+         mode=0755,
+         content=StaticFile('addPsqlUser.sh')
+    )
 
-    cmd = format("bash -x {mysql_adduser_path} {daemon_name} {hive_metastore_user_name} {hive_metastore_user_passwd!p} {mysql_host[0]}")
+    cmd = format("bash -x {mysql_adduser_path} {daemon_name} {hive_metastore_user_name} {hive_metastore_user_passwd!p} {mysql_host[0]} {hive_database_name}")
 
     Execute(cmd,
             tries=3,
@@ -52,13 +58,16 @@ class MysqlServer(Script):
   def start(self, env):
     import params
     env.set_params(params)
-
+    #ananda change
+    sys.exit(0)
     mysql_service(daemon_name=params.daemon_name, action = 'start')
 
   def stop(self, env):
     import params
     env.set_params(params)
 
+    #ananda change
+    sys.exit(0)
     mysql_service(daemon_name=params.daemon_name, action = 'stop')
 
   def status(self, env):

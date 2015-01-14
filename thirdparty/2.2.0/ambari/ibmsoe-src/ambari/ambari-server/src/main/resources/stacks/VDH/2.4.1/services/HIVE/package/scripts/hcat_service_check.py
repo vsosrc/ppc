@@ -44,7 +44,7 @@ def hcat_service_check():
             tries=3,
             user=params.smokeuser,
             try_sleep=5,
-            path=['/usr/sbin', '/usr/local/nin', '/bin', '/usr/bin'],
+            path=['/opt/vse/hive/hcatalog/bin','/usr/sbin', '/usr/local/nin', '/bin', '/usr/bin'],
             environment = {'PATH' : params.execute_path},
             logoutput=True)
 
@@ -77,6 +77,6 @@ def hcat_service_check():
             user=params.smokeuser,
             environment = {'PATH' : params.execute_path },
             try_sleep=5,
-            path=['/usr/sbin', '/usr/local/nin', '/bin', '/usr/bin'],
+            path=['/opt/vse/hive/hcatalog/bin','/usr/sbin', '/usr/local/nin', '/bin', '/usr/bin'],
             logoutput=True
     )

@@ -769,6 +769,10 @@ def configure_pg_hba_ambaridb_users():
 
   with open(PG_HBA_CONF_FILE, "a") as pgHbaConf:
     pgHbaConf.write("\n")
+    #ananda changes
+    pgHbaConf.write("host  all   " + "all " +
+                    " 0.0.0.0/0  trust")
+    pgHbaConf.write("\n")
     pgHbaConf.write("local  all  " + args.database_username +
                     ",mapred md5")
     pgHbaConf.write("\n")

@@ -65,8 +65,8 @@ else:
   tez_local_lib_jars = '/usr/lib/tez/lib/*.jar'
 
   if str(hdp_stack_version).startswith('2.0'):
-    hcat_conf_dir = '/etc/hcatalog/conf'
-    hcat_lib = '/usr/lib/hcatalog/share/hcatalog'
+    hcat_conf_dir = '/opt/vse/hive/hcatalog/etc/hcatalog'
+    hcat_lib = '/opt/vse/hive/hcatalog/share/hcatalog'
   # for newer versions
   else:
     hcat_conf_dir = '/opt/vse/hive/hcatalog/etc/hcatalog'
@@ -78,11 +78,18 @@ hive_jdbc_connection_url = config['configurations']['hive-site']['javax.jdo.opti
 
 hive_metastore_user_passwd = config['configurations']['hive-site']['javax.jdo.option.ConnectionPassword']
 hive_metastore_db_type = config['configurations']['hive-env']['hive_database_type']
+#ananda change
+hive_metastore_db_type = 'postgres'
 
 #users
 hive_user = config['configurations']['hive-env']['hive_user']
 #JDBC driver jar name
 hive_jdbc_driver = config['configurations']['hive-site']['javax.jdo.option.ConnectionDriverName']
+
+#ananda change
+#fixing for postgres
+hive_jdbc_driver == "org.postgresql.Driver"
+
 if hive_jdbc_driver == "com.mysql.jdbc.Driver":
   jdbc_jar_name = "mysql-connector-java.jar"
   jdbc_symlink_name = "mysql-jdbc-driver.jar"
@@ -159,11 +166,18 @@ java64_home = config['hostLevelParams']['java_home']
 ##### MYSQL
 
 db_name = config['configurations']['hive-env']['hive_database_name']
-mysql_user = "mysql"
-mysql_group = 'mysql'
+#mysql_user = "mysql"
+#mysql_group = 'mysql'
+#ananda change
+mysql_user = "postgres"
+mysql_group = 'postgres'
+#ananda end
+
 mysql_host = config['clusterHostInfo']['hive_mysql_host']
 
-mysql_adduser_path = format("{tmp_dir}/addMysqlUser.sh")
+#mysql_adduser_path = format("{tmp_dir}/addMysqlUser.sh")
+#ananda change
+mysql_adduser_path = format("{tmp_dir}/addPsqlUser.sh")
 
 ######## Metastore Schema
 if str(hdp_stack_version).startswith('2.0'):
@@ -219,7 +233,9 @@ else:
 # Hive security
 hive_authorization_enabled = config['configurations']['hive-site']['hive.security.authorization.enabled']
 
-mysql_jdbc_driver_jar = "/usr/share/java/mysql-connector-java.jar"
+#mysql_jdbc_driver_jar = "/usr/share/java/mysql-connector-java.jar"
+#ananda change
+mysql_jdbc_driver_jar = "/opt/vse/hive/lib/postgresql-jdbc.jar"
 
 # There are other packages that contain /usr/share/java/mysql-connector-java.jar (like libmysql-java),
 # trying to install mysql-connector-java upon them can cause packages to conflict.
