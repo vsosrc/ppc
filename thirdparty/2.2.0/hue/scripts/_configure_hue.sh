@@ -36,3 +36,19 @@ sed -i "s/SED_SOLR_CTL_PATH/$_SOLR_CTL_PATH/g" /opt/vse/hue/desktop/conf/*.ini
 sed -i "s/SED_SOLR_HOME/$_SOLR_HOME/g" /opt/vse/hue/desktop/conf/*.ini
 sed -i "s/SED_SOLR_ZK_ENSEMBLE_URL/$_SOLR_ZK_ENSEMBLE_URL/g" /opt/vse/hue/desktop/conf/*.ini
 sed -i "s/SED_HUE_INSTALL_DIR/$_HUE_INSTALL_DIR/g" /opt/vse/hue/desktop/conf/*.ini
+
+# get Python Lxml libraries.
+apt-get install python-lxml
+
+# added User Hue since HUE is running under Hue userid. 
+
+useradd hue
+passwd hue
+mkdir /home/hue
+chown hue /home/hue
+
+# Changed access rights to desktop directory and the sqllite db file.
+
+cd /opt/vse/hue/desktop
+chown 777 .
+chown 777 desktop.db

@@ -82,9 +82,9 @@ echo " Starting Hive..."
 $z_base/$z_hive/bin/hive --service hiveserver2 >/dev/null 2>&1 &
 
 echo " Starting Zookeeper"
-$z_base/$z_zookeeper/bin/zkServer.sh start &
+$z_base/$z_zookeeper/bin/zkServer.sh start 
 
 echo " Starting HBase"
-$z_base/$z_hbase/bin/start-hbase.sh &
+$z_base/$z_hbase/bin/start-hbase.sh 
 
 echo " done..."
