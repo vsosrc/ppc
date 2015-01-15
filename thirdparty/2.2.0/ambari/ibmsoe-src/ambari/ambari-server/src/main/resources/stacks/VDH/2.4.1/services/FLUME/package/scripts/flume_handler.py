@@ -106,6 +106,7 @@ class FlumeHandler(Script):
     json['alerts'].append(alert)
     self.put_structured_out(json)
 
+"""
     # only throw an exception if there are agents defined and there is a 
     # problem with the processes; if there are no agents defined, then 
     # the service should report STARTED (green) ONLY if the desired state is started.  otherwise, INSTALLED (red)
@@ -115,6 +116,7 @@ class FlumeHandler(Script):
           raise ComponentIsNotRunning()
     elif len(expected_agents) == 0 and 'INSTALLED' == get_desired_state():
       raise ComponentIsNotRunning()
+"""
 
 if __name__ == "__main__":
   FlumeHandler().execute()

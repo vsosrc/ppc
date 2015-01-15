@@ -33,7 +33,7 @@
   </property>
   <property>
     <name>flume_user</name>
-    <value>flume</value>
+    <value>root</value>
     <property-type>USER</property-type>
     <description>Flume User</description>
   </property>
