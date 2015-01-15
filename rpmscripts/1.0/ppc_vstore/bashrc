@@ -14,6 +14,9 @@ export HIVE_HOME=/opt/vse/hive
 export FLUME_HOME=/opt/vse/flume
 export HBASE_HOME=/opt/vse/hbase
 export SQOOP_HOME=/opt/vse/sqoop
+export SOLR_HOME=/opt/vse/solr
+export ZOOKEEPER_HOME=/opt/vse/zookeeper
+export OOZIE_HOME=/opt/vse/oozie
 
 export VSE_WEBHOME=/webapps/vse
 export VSE_HOME=/opt/vse
@@ -29,4 +32,4 @@ export PIG_CLASSPATH=${HADOOP_CONF_DIR}:${HBASE_CONF_DIR}:${HADOOP_JAR}:${HBASE_
 
 export CLASSPATH=$CLASSPATH:/root/jaxrs-ri/lib/*:/root/jaxrs-ri/ext/*:/opt/vse/lib/*:/opt/vse/lib/postgresql-jdbc.jar:/opt/vse/lib/log4j-1.2.17.jar:/opt/vse/webapps/vse/WEB-INF:
 
-export PATH=$PATH:$JAVA_HOME/jre/bin:$VSE_HOME/sbin:$VSE_HOME/lib:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:$HIVE_HOME/bin:$FLUME_HOME/bin:$HBASE_HOME/bin:$SQOOP_HOME/bin:
+export PATH=$PATH:$JAVA_HOME/jre/bin:$VSE_HOME/sbin:$VSE_HOME/lib:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:$HIVE_HOME/bin:$FLUME_HOME/bin:$HBASE_HOME/bin:$SQOOP_HOME/bin:$SOLR_HOME:$ZOOKEEPER_HOME/bin:$OOZIE_HOME/bin:

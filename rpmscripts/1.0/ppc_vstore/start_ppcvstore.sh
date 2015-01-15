@@ -28,6 +28,7 @@ z_hadoop="hadoop"
 z_hive="hive"
 z_zookeeper="zookeeper"
 z_hbase="hbase"
+z_oozie="oozie"
 
 checksafemode()
 {
@@ -86,5 +87,8 @@ $z_base/$z_zookeeper/bin/zkServer.sh start
 
 echo " Starting HBase"
 $z_base/$z_hbase/bin/start-hbase.sh 
+
+echo " Starting Oozie"
+$z_base/$z_oozie/bin/oozied.sh start
 
 echo " done..."

@@ -50,11 +50,11 @@ export OOZIE_HTTP_PORT=SED_OOZIE_IP_PORT
 
 # The host name Oozie server runs on
 #
-export OOZIE_HTTP_HOSTNAME=OOZIE_HOST_NAME
+export OOZIE_HTTP_HOSTNAME=SED_OOZIE_IP_ADDRESS
 
 # The base URL for callback URLs to Oozie
 #
-export OOZIE_BASE_URL="http://${OOZIE_HTTP_HOSTNAME}:${OOZIE_HTTP_PORT}/oozie"
+export OOZIE_BASE_URL="http://SED_OOZIE_IP_ADDRESS:SED_OOZIE_IP_PORT/oozie"
 
 # The location of the keystore for the Oozie server if using SSL (HTTPS)
 #

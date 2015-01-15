@@ -7,6 +7,11 @@
 #!/bin/bash
 
 JAVAHOME=$(echo $1 | awk '{gsub("/","\\/");print;}')
+#setting up java environment
+sed -i "s/SED_JAVA_HOME/$JAVAHOME/g" /opt/vse/sbin/.bashrc
+cp ~/.bashrc ~/.bashrc.bak 2>/dev/null
+cp /opt/vse/sbin/.bashrc ~/.bashrc 2>/dev/null
+
 NNIPADDRESS=$2
 NNPORT=$3
 DBIPADDR=$4
@@ -42,3 +47,6 @@ source /opt/vse/sbin/.bashrc
 
 #configure solr
 /opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "user\/solr\/solr-ddir" ${WEBAPPS_DIR}
+
+#configure oozie
+/opt/vse/sbin/_configure_oozie.sh $NNIPADDRESS $NNPORT $NNIPADDRESS 11000

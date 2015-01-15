@@ -43,12 +43,6 @@ cp $1/rpmscripts/1.0/ppc_vstore/bashrc ${RPMDIR}/sbin/.bashrc
 #cp ../shell/license/sturgeon ${RPMDIR}/.license/.sturgeon
 #cp ../shell/license/End-User-License-Agreement-Veristorm ${RPMDIR}/.license/End-User-License-Agreement-Veristorm
 cd ${RPMDIR}
-#creating hadoop distro
-#cp ${THIRDPARTY}/hadoop/xaa ${RPMDIR}
-#cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
-#cat xaa xab > ./hadoop-2.2.0.tar.gz
-#tar xvf ./hadoop-2.2.0.tar.gz
-#cp ${THIRDPARTY}/hadoop/hadoop-2.4.1.tar.gz ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xaa ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
 cat xaa xab > ./hadoop-2.4.1.tar.gz
@@ -157,7 +151,22 @@ then
 	cp ${THIRDPARTY}/solr/config_x86/* ${RPMDIR}/solr-4.8-SNAPSHOT/example/solr/collection1/conf
 fi
 
-sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n ppc-vstore -v 2.2 -a native --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
+#creating oozie distro
+cp ${THIRDPARTY}/oozie/split/xaa ${RPMDIR}
+cp ${THIRDPARTY}/oozie/split/xab ${RPMDIR}
+cp ${THIRDPARTY}/oozie/split/xac ${RPMDIR}
+cat xaa xab xac > ./oozie-4.0.1.tar.gz
+tar xvf ./oozie-4.0.1.tar.gz
+rm -f ./oozie-4.0.1.tar.gz
+rm -f ./xaa ./xab ./xac
+
+#patch os.arch for x86 in hadoop config files
+if [ $PLATFORM = "s390x" ]
+then
+	cp ${THIRDPARTY}/oozie/config_x86/* ${RPMDIR}/oozie-4.0.1/conf
+fi
+
+sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n vdh-ppc-vstore -v 2.4.1 -a native --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 
 mv -f *.deb ..
 rm -rf ${RPMDIR} 2>/dev/null

@@ -42,10 +42,10 @@ apt-get install python-lxml
 
 # added User Hue since HUE is running under Hue userid. 
 
-useradd hue
-passwd hue
-mkdir /home/hue
-chown hue /home/hue
+useradd hue --home /home/hue
+#passwd hue
+#mkdir /home/hue
+#chown hue /home/hue
 
 # Changed access rights to desktop directory and the sqllite db file.
 

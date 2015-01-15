@@ -31,7 +31,6 @@ readinputs()
 	#NNIPADDRESS=$IPADDRESS
 	echo -n "Please enter JDK Path: "
 	read JDKPATH
-	#JDKPATH="/opt/vse/java/jre"
         echo -n "Please enter WebApps Home: "
         read WEBAPPSHOME
         echo -n "Please enter DB IP Address: "

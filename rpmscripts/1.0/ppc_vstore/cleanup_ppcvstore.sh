@@ -61,6 +61,7 @@ cp ~/.pgpass.bak ~/.pgpass 2>/dev/null
 \rm -rf /opt/vse/*sqoop*
 \rm -rf /opt/vse/*avro*
 \rm -rf /opt/vse/*hue*
+\rm -rf /opt/vse/*oozie*
 \rm -rf /opt/vse/*solr*
 \rm -rf /opt/vse/disk*
 \rm -rf /opt/vse/logs
