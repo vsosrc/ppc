@@ -30,7 +30,7 @@
     <deb.dependency.list>openssl, postgresql (&gt;= 8.1), ${deb.python.ver}, curl</deb.dependency.list>
     <custom.tests>false</custom.tests>
     <hdpUrlForCentos6>http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.1.1.0</hdpUrlForCentos6>
-    <hdpLatestUrl>http://ec2-54-148-148-173.us-west-2.compute.amazonaws.com/repos/vdh/apt/debian</hdpLatestUrl>
+    <hdpLatestUrl>http://repo.veristorm.com/repos/vdh/apt/debian</hdpLatestUrl>
     <ambari_commons.install.dir>/usr/lib/ambari-server/lib/ambari_commons</ambari_commons.install.dir>
     <resource_management.install.dir>/usr/lib/ambari-server/lib/resource_management</resource_management.install.dir>
     <jinja.install.dir>/usr/lib/ambari-server/lib/ambari_jinja2</jinja.install.dir>
@@ -556,7 +556,7 @@
         </executions>
         <configuration>
           <controlDir>${basedir}/src/main/package/deb/control</controlDir>
-          <deb>${basedir}/target/${artifactId}_${package-version}-${package-release}.deb</deb>
+          <deb>${basedir}/target/vdh-ppc-${artifactId}_${package-version}-${package-release}.deb</deb>
           <dataSet>
             <data>
               <type>template</type>
