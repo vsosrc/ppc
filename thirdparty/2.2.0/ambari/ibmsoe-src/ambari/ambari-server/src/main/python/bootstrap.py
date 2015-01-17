@@ -145,7 +145,7 @@ class Bootstrap(threading.Thread):
   """ Bootstrap the agent on a separate host"""
   TEMP_FOLDER = DEFAULT_AGENT_TEMP_FOLDER
   OS_CHECK_SCRIPT_FILENAME = "os_check_type.py"
-  AMBARI_REPO_FILENAME = "ambari"
+  AMBARI_REPO_FILENAME = "vdh"
   SETUP_SCRIPT_FILENAME = "setupAgent.py"
   PASSWORD_FILENAME = "host_pass"
   ambari_commons="/usr/lib/python2.6/site-packages/ambari_commons"
