@@ -89,6 +89,8 @@ $z_base/$z_zookeeper/bin/zkServer.sh start
 
 echo " Starting HBase"
 $z_base/$z_hbase/bin/start-hbase.sh 
+echo " Starting HBase thrift server"
+$z_base/$z_hbase/bin/hbase-daemon.sh start thrift 
 
 echo " Starting Oozie"
 $z_base/$z_oozie/bin/oozied.sh start

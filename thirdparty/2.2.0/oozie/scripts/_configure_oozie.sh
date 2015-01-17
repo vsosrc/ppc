@@ -23,6 +23,11 @@ sed -i "s/SED_OOZIE_ADMIN_IP_PORT/$_OOZIE_ADMIN_IP_PORT/g" /opt/vse/oozie/conf/*
 sed -i "s/SED_OOZIE_HTTPS_PORT/$_OOZIE_HTTPS_PORT/g" /opt/vse/oozie/conf/*.xml
 sed -i "s/SED_OOZIE_USER_NAME/$_OOZIE_USER_NAME/g" /opt/vse/oozie/conf/*.xml
 
+
+# get zip
+
+apt-get install zip
+
 # Prepare the WAR file
 cd /opt/vse/oozie
 

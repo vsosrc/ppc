@@ -17,6 +17,7 @@ export SQOOP_HOME=/opt/vse/sqoop
 export SOLR_HOME=/opt/vse/solr
 export ZOOKEEPER_HOME=/opt/vse/zookeeper
 export OOZIE_HOME=/opt/vse/oozie
+export HCAT_HOME=/opt/vse/hive/hcatalog/
 
 export VSE_WEBHOME=/webapps/vse
 export VSE_HOME=/opt/vse
