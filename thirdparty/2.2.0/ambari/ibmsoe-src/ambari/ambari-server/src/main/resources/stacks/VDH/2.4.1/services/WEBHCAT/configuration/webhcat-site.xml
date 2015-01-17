@@ -31,26 +31,26 @@ limitations under the License.
 
   <property>
     <name>templeton.hadoop.conf.dir</name>
-    <value>/etc/hadoop/conf</value>
+    <value>/opt/vse/hadoop/etc/hadoop/conf</value>
     <description>The path to the Hadoop configuration.</description>
   </property>
 
   <property>
     <name>templeton.jar</name>
-    <value>/usr/lib/hcatalog/share/webhcat/svr/webhcat.jar</value>
+    <value>/opt/vse/hive/hcatalog/share/webhcat/svr/lib/hive-webhcat-0.13.0.jar</value>
     <description>The path to the Templeton jar file.</description>
   </property>
 
   <property>
     <name>templeton.libjars</name>
-    <value>/usr/lib/zookeeper/zookeeper.jar</value>
+    <value>/opt/vse/zookeeper/zookeeper-3.4.5.jar</value>
     <description>Jars to add the the classpath.</description>
   </property>
 
 
   <property>
     <name>templeton.hadoop</name>
-    <value>/usr/bin/hadoop</value>
+    <value>/opt/vse/hadoop/bin/hadoop</value>
     <description>The path to the Hadoop executable.</description>
   </property>
 
@@ -62,13 +62,13 @@ limitations under the License.
 
   <property>
     <name>templeton.pig.path</name>
-    <value>pig.tar.gz/pig/bin/pig</value>
+    <value>pig.tar.gz/pig-0.14.0/bin/pig</value>
     <description>The path to the Pig executable.</description>
   </property>
 
   <property>
     <name>templeton.hcat</name>
-    <value>/usr/bin/hcat</value>
+    <value>/opt/vse/hive/hcatalog/bin/hcat</value>
     <description>The path to the hcatalog executable.</description>
   </property>
 
@@ -80,19 +80,19 @@ limitations under the License.
 
   <property>
     <name>templeton.hive.home</name>
-    <value>hive.tar.gz/hive</value>
+    <value>hive.tar.gz/apache-hive-0.13.0-bin</value>
     <description>The path to the Hive home within the tar. Has no effect if templeton.hive.archive is not set.</description>
   </property>
 
   <property>
     <name>templeton.hcat.home</name>
-    <value>hive.tar.gz/hive/hcatalog</value>
+    <value>hive.tar.gz/apache-hive-0.13.0-bin/hcatalog</value>
     <description>The path to the HCat home within the tar. Has no effect if templeton.hive.archive is not set.</description>
   </property>
 
   <property>
     <name>templeton.hive.path</name>
-    <value>hive.tar.gz/hive/bin/hive</value>
+    <value>hive.tar.gz/apache-hive-0.13.0-bin/bin/hive</value>
     <description>The path to the Hive executable.</description>
   </property>
 
@@ -101,8 +101,6 @@ limitations under the License.
     <value>hive.metastore.local=false, hive.metastore.uris=thrift://localhost:9933, hive.metastore.sasl.enabled=false</value>
     <description>Properties to set when running hive.</description>
   </property>
-
-
   <property>
     <name>templeton.zookeeper.hosts</name>
     <value>localhost:2181</value>

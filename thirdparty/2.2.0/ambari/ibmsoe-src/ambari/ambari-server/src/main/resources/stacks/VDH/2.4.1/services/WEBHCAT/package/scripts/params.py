@@ -43,16 +43,16 @@ if rpm_version is not None:
     config_dir = format('/usr/hdp/{rpm_version}/etc/hive-webhcat/conf')
     webhcat_bin_dir = format('/usr/hdp/{rpm_version}/hive/hive-hcatalog/sbin')
 else:
-  hadoop_bin_dir = "/usr/bin"
-  hadoop_home = '/usr'
-  hadoop_streeming_jars = '/usr/lib/hadoop-mapreduce/hadoop-streaming-*.jar'
+  hadoop_bin_dir = "/opt/vse/hadoop/bin"
+  hadoop_home = '/opt/vse/hadoop'
+  hadoop_streeming_jars = '/opt/vse/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar'
   if str(hdp_stack_version).startswith('2.0'):
-    config_dir = '/etc/hcatalog/conf'
-    webhcat_bin_dir = '/usr/lib/hcatalog/sbin'
+    config_dir = '/opt/vse/hive/hcatalog/etc/webhcat'
+    webhcat_bin_dir = '/opt/vse/hive/hcatalog/sbin'
   # for newer versions
   else:
-    config_dir = '/etc/hive-webhcat/conf'
-    webhcat_bin_dir = '/usr/lib/hive-hcatalog/sbin'
+    config_dir = '/opt/vse/hive/hcatalog/etc/webhcat'
+    webhcat_bin_dir = '/opt/vse/hive/hcatalog/sbin'
 
 hcat_user = config['configurations']['hive-env']['hcat_user']
 webhcat_user = config['configurations']['hive-env']['webhcat_user']
@@ -63,7 +63,8 @@ templeton_pid_dir = status_params.templeton_pid_dir
 
 pid_file = status_params.pid_file
 
-hadoop_conf_dir = config['configurations']['webhcat-site']['templeton.hadoop.conf.dir']
+#hadoop_conf_dir = config['configurations']['webhcat-site']['templeton.hadoop.conf.dir']
+hadoop_conf_dir = '/opt/vse/hadoop/etc/hadoop'
 templeton_jar = config['configurations']['webhcat-site']['templeton.jar']
 
 user_group = config['configurations']['cluster-env']['user_group']

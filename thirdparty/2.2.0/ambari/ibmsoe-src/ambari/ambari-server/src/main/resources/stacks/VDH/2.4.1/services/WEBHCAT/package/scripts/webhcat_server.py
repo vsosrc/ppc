@@ -31,31 +31,23 @@ class WebHCatServer(Script):
     self.install_packages(env)
   def configure(self, env):
     import params
-    import sys
-    sys.exit(0)
     env.set_params(params)
     webhcat()
 
   def start(self, env):
     import params
-    import sys
-    sys.exit(0)
     env.set_params(params)
     self.configure(env) # FOR SECURITY
     webhcat_service(action = 'start')
 
   def stop(self, env):
     import params
-    import sys
-    sys.exit(0)
     env.set_params(params)
 
     webhcat_service(action = 'stop')
 
   def status(self, env):
     import status_params
-    import sys
-    sys.exit(0)
     env.set_params(status_params)
     check_process_status(status_params.pid_file)
 
