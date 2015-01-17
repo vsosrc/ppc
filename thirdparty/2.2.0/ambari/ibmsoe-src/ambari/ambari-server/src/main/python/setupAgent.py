@@ -49,7 +49,7 @@ def execOsCommand(osCommand, tries=1, try_sleep=0):
   return ret
 
 def installVDP():
-  Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "ppc-vstore"]
+  Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "vdh-ppc-vstore"]
   return execOsCommand(Command, tries=3, try_sleep=10)
 
 def installAgent(projectVersion):

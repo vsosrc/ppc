@@ -181,7 +181,7 @@
 
     <service>
       <name>HCATALOG</name>
-      <displayName> </displayName>
+      <displayName>HCatalog</displayName>
       <comment>A table and storage management layer for Hadoop that enables users with different data processing tools
         to more easily read and write data on the grid.
       </comment>
