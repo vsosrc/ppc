@@ -44,17 +44,21 @@ export CATALINA_OPTS="$CATALINA_OPTS -Xmx1024m"
 #
 export OOZIE_HTTP_PORT=SED_OOZIE_IP_PORT
 
+# The port Oozie server runs
+#
+export OOZIE_ADMIN_PORT=SED_OOZIE_ADMIN_IP_PORT
+
 # The port Oozie server runs if using SSL (HTTPS)
 #
-# export OOZIE_HTTPS_PORT=11443
+export OOZIE_HTTPS_PORT=SED_OOZIE_HTTPS_PORT
 
 # The host name Oozie server runs on
 #
-export OOZIE_HTTP_HOSTNAME=SED_OOZIE_IP_ADDRESS
+export OOZIE_HTTP_HOSTNAME=SED_OOZIE_HOST_NAME
 
 # The base URL for callback URLs to Oozie
 #
-export OOZIE_BASE_URL="http://SED_OOZIE_IP_ADDRESS:SED_OOZIE_IP_PORT/oozie"
+export OOZIE_BASE_URL="http://SED_OOZIE_HOST_NAME:SED_OOZIE_IP_PORT/oozie"
 
 # The location of the keystore for the Oozie server if using SSL (HTTPS)
 #

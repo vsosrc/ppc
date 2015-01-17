@@ -19,7 +19,7 @@ info()
 info "vStorm Enterpise Store setup started" > ${logfile} 2>&1
 showEULA()
 {
-        LFILE="/opt/vse/.license/End-User-License-Agreement-Veristorm"
+        LFILE="/opt/vse/.license/VDH-End-User-License-Agreement"
         cat $LFILE | more
         while true
         do

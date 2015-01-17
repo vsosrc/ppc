@@ -19,6 +19,7 @@ checkrc()
 
 ps aux | grep [h]adoop >/dev/null 2>&1
 #checkrc "" "Some of the Hadoop Servers are already running! Please stop them first.."
+source /opt/vse/sbin/.bashrc
 
 echo " "
 echo " Starting vStore Servers..."
@@ -29,6 +30,7 @@ z_hive="hive"
 z_zookeeper="zookeeper"
 z_hbase="hbase"
 z_oozie="oozie"
+z_solr="solr"
 
 checksafemode()
 {
@@ -90,5 +92,10 @@ $z_base/$z_hbase/bin/start-hbase.sh
 
 echo " Starting Oozie"
 $z_base/$z_oozie/bin/oozied.sh start
+
+echo " Starting Solr"
+cd /opt/vse/solr/example
+${JAVA_HOME}/bin/java  -jar start.jar&
+cd /opt/vse
 
 echo " done..."

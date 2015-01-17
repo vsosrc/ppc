@@ -20,13 +20,18 @@ limitations under the License.
 from resource_management import *
 from hdfs_datanode import datanode
 from hdfs import hdfs
-
+import os
 
 class DataNode(Script):
   def install(self, env):
     import params
     import sys
 
+    env.set_params(params)
+    n1 = params.namenode_host
+    h1 = params.hostname
+    command = "/opt/vse/sbin/hdfs_ambari.sh " + h1 + " " + n1[0] + " "
+    os.system(command)
     sys.exit(0)
     #self.install_packages(env, params.exclude_packages)
     #env.set_params(params)

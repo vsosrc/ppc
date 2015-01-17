@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>HUE</name>
+            <displayName>Hue Server</displayName>
+            <comment>Development Environment for Hadoop</comment>
+            <version>4.8</version>
+            <components>
+                <component>
+                    <name>HueServer</name>
+                    <displayName>HueNode</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1</cardinality>
+                    <commandScript>
+                        <script>scripts/hue.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+            </components>
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>ubuntu14</osFamily>  <!-- note: use osType rather than osFamily for Ambari 1.5.0 and 1.5.1 -->
+                </osSpecific>
+            </osSpecifics>
+        </service>
+    </services>
+</metainfo>

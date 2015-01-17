@@ -37,7 +37,7 @@ source /opt/vse/sbin/.bashrc
 #configure avro...no config required
 
 #configure hue
-/opt/vse/sbin/_configure_hue.sh $NNIPADDRESS 5888 8021 9290 oozie_url $NNIPADDRESS 10000 "\/opt\/vse\/hive\/conf" "\/opt\/vse\/hive\/bin" "http://$NNIPADDRESS:12000/sqoop" solr_url solr_ctrl_path "\/opt\/vse\/solr" zk_ensemble_url "\/opt\/vse\/hue"
+/opt/vse/sbin/_configure_hue.sh ${NNIPADDRESS} 8888 ${NNIPADDRESS} 8020 ${NNIPADDRESS} 14000 ${NNIPADDRESS} 8032 YARN_RES_API_HOST 8088 YARN_PROXY_HOST 8088 YARN_HIST_HOST 8088 8021 9290 ${NNIPADDRESS} 11000 ${NNIPADDRESS} 10000  '\/opt\/vse\/hive\/conf'  '\/opt\/vse\/hive\/bin\/hiveserver2'  ${NNIPADDRESS} 12000  ${NNIPADDRESS} 8983 '\/usr\/bin\/solrctl' '\/opt\/vse\/solr' ${NNIPADDRESS} 2181 '\/opt\/vse' ${NNIPADDRESS} 9090
 
 #configure zookeeper
 /opt/vse/sbin/_configure_zookeeper.sh "\/opt\/vse\/zookeeper" "\/opt\/vse\/zookeeper\/zoo-ddir"
@@ -46,7 +46,8 @@ source /opt/vse/sbin/.bashrc
 /opt/vse/sbin/_configure_hbase.sh $NNIPADDRESS $JAVAHOME "\/opt\/vse\/zookeeper\/zoo-ddir"
 
 #configure solr
-/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "user\/solr\/solr-ddir" ${WEBAPPS_DIR}
+#/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "user\/solr\/solr-ddir" ${WEBAPPS_DIR}
+/opt/vse/sbin/_configure_solr.sh $NNIPADDRESS $NNPORT "user\/solr\/solr-ddir"
 
 #configure oozie
-/opt/vse/sbin/_configure_oozie.sh $NNIPADDRESS $NNPORT $NNIPADDRESS 11000
+/opt/vse/sbin/_configure_oozie.sh $NNIPADDRESS $NNPORT $NNIPADDRESS 11000 11001 11443

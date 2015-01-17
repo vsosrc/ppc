@@ -31,8 +31,8 @@ readinputs()
 	#NNIPADDRESS=$IPADDRESS
 	echo -n "Please enter JDK Path: "
 	read JDKPATH
-        echo -n "Please enter WebApps Home: "
-        read WEBAPPSHOME
+        #echo -n "Please enter WebApps Home: "
+        #read WEBAPPSHOME
         echo -n "Please enter DB IP Address: "
         read DBIPADDR
         echo -n "Please enter DB Port: "
@@ -52,7 +52,7 @@ inputsummary()
 	echo "NameNode IPAdress: $NNIPADDRESS"
 	echo "NameNode Port: $NNPORT"
 	echo "JDK Path: $JDKPATH"
-        echo "WebApps Home: $WEBAPPSHOME"
+        #echo "WebApps Home: $WEBAPPSHOME"
         echo "DB IP Address: $DBIPADDR"
         echo "DB Port: $DBPORT"
         echo "DB User: $DBUSER"

@@ -8,9 +8,20 @@ _HDFS_HOST_NAME=$1 # host name of hadoop namenode
 _HDFS_IP_PORT=$2   # namenode port
 _OOZIE_HOST_NAME=$3     # hostname where OOZIE server will run
 _OOZIE_IP_PORT=$4       # PORT of oozie server - default is 11000
+_OOZIE_ADMIN_IP_PORT=$5       # PORT of oozie server - default is 11001
+_OOZIE_HTTPS_PORT=$6       # PORT of oozie server - default is 11443
+_OOZIE_USER_NAME=root     # PORT of oozie server - default is 11443
 
-sed -i "s/SED_OOZIE_IP_ADDRESS/$_OOZIE_HOST_NAME/g" /opt/vse/oozie/conf/*.sh
+sed -i "s/SED_OOZIE_HOST_NAME/$_OOZIE_HOST_NAME/g" /opt/vse/oozie/conf/*.sh
 sed -i "s/SED_OOZIE_IP_PORT/$_OOZIE_IP_PORT/g" /opt/vse/oozie/conf/*.sh
+sed -i "s/SED_OOZIE_ADMIN_IP_PORT/$_OOZIE_ADMIN_IP_PORT/g" /opt/vse/oozie/conf/*.sh
+sed -i "s/SED_OOZIE_HTTPS_PORT/$_OOZIE_HTTPS_PORT/g" /opt/vse/oozie/conf/*.sh
+sed -i "s/SED_OOZIE_USER_NAME/$_OOZIE_USER_NAME/g" /opt/vse/oozie/conf/*.sh
+sed -i "s/SED_OOZIE_IP_ADDRESS/$_OOZIE_HOST_NAME/g" /opt/vse/oozie/conf/*.xml
+sed -i "s/SED_OOZIE_IP_PORT/$_OOZIE_IP_PORT/g" /opt/vse/oozie/conf/*.xml
+sed -i "s/SED_OOZIE_ADMIN_IP_PORT/$_OOZIE_ADMIN_IP_PORT/g" /opt/vse/oozie/conf/*.xml
+sed -i "s/SED_OOZIE_HTTPS_PORT/$_OOZIE_HTTPS_PORT/g" /opt/vse/oozie/conf/*.xml
+sed -i "s/SED_OOZIE_USER_NAME/$_OOZIE_USER_NAME/g" /opt/vse/oozie/conf/*.xml
 
 # Prepare the WAR file
 cd /opt/vse/oozie

@@ -3,6 +3,8 @@ Install
 ## Untar oozie-4.0.1.tar.gz  to install in any directory, e.g. /home/oozie, /usr/share, /home/my_user 
 
 copy config_x86/oozie-env.sh to {OOZIE_HOME}/conf/oozie-env.sh
+copy config_x86/oozie-default.xml to {OOZIE_HOME}/conf/oozie-default.xml
+copy config_x86/oozie-site.xml to {OOZIE_HOME}/conf/oozie-site.xml
 
 ## If you don't have the permissions, you will need to 'sudo' the command
 

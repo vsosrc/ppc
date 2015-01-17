@@ -25,7 +25,7 @@ mkdir ${RPMDIR}/sbin 2>/dev/null
 mkdir ${RPMDIR}/logs 2>/dev/null
 mkdir ${RPMDIR}/.license 2>/dev/null
 #temp license replace with real one
-echo "Licensed to ABC of H" > ${RPMDIR}/.license/End-User-License-Agreement-Veristorm
+#echo "Licensed to ABC of H" > ${RPMDIR}/.license/End-User-License-Agreement-Veristorm
 
 #
 echo "Creating PPC vstore "
@@ -39,9 +39,7 @@ cp $1/rpmscripts/1.0/ppc_vstore/*.sql ${RPMDIR}/sbin
 cp $1/rpmscripts/1.0/ppc_vstore/hadoopdb.template ${RPMDIR}/sbin/.hadoopdb.sql
 cp $1/rpmscripts/1.0/ppc_vstore/bashrc ${RPMDIR}/sbin/.bashrc
 #license scripts
-#cp ../shell/license/pubring.gpg ${RPMDIR}/.license/.pubring.gpg
-#cp ../shell/license/sturgeon ${RPMDIR}/.license/.sturgeon
-#cp ../shell/license/End-User-License-Agreement-Veristorm ${RPMDIR}/.license/End-User-License-Agreement-Veristorm
+cp ../license/VDH-End-User-License-Agreement ${RPMDIR}/.license/
 cd ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xaa ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
