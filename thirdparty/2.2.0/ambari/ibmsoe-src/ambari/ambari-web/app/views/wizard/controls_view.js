@@ -222,7 +222,10 @@ App.ServiceConfigRadioButtons = Ember.View.extend({
       if (connectionUrl) {
         if (this.get('serviceConfig.serviceName') === 'HIVE') {
           switch (this.get('serviceConfig.value')) {
-            case 'New MySQL Database':
+            case 'New PostgreSQL Database':
+              connectionUrl.set('value', "jdbc:postgresql://" + this.get('hostName') + ":5432/" + this.get('databaseName'));
+              dbClass.set('value', "org.postgresql.Driver");
+              break;
             case 'Existing MySQL Database':
               connectionUrl.set('value', "jdbc:mysql://" + this.get('hostName') + "/" + this.get('databaseName') + "?createDatabaseIfNotExist=true");
               dbClass.set('value', "com.mysql.jdbc.Driver");
@@ -281,7 +284,7 @@ App.ServiceConfigRadioButtons = Ember.View.extend({
     var hostname;
     if (this.get('serviceConfig.serviceName') === 'HIVE') {
       switch (value) {
-        case 'New MySQL Database':
+        case 'New PostgreSQL Database':
           hostname = this.get('categoryConfigsAll').findProperty('name', 'hive_ambari_host');
           break;
         case 'Existing MySQL Database':
