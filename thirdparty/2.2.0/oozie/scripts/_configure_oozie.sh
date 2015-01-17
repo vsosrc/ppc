@@ -30,7 +30,7 @@ cd /opt/vse/oozie
 
 # Create sharelib on HDFS
 
-./bin/oozie-setup.sh sharelib create -fs hdfs://$_HDFS_HOST_NAME:$_HDFS_IP_PORT
+#./bin/oozie-setup.sh sharelib create -fs hdfs://$_HDFS_HOST_NAME:$_HDFS_IP_PORT
 
 # Create the OoozieDB
 
