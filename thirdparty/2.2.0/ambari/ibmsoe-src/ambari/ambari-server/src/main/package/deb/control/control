@@ -12,11 +12,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License
-Package: [[artifactId]]
-Version: [[package-version]]-[[package-release]]
-Section: [[deb.section]]
-Priority: [[deb.priority]]
-Depends: [[deb.dependency.list]]
-Architecture: [[deb.architecture]]
-Description: [[description]]
-Maintainer: [[deb.publisher]]
+Package: vdh-ppc-ambari-server
+Version: 1.6.1-1
+Section: universe/admin
+Priority: extra
+Depends: openssl, postgresql (>= 8.1), python (>= 2.6), curl
+Architecture: ppc64el
+Description: VDH Ambari Server
+Maintainer: Veristorm
