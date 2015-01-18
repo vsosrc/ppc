@@ -39,8 +39,8 @@ else:
   hadoop_conf_dir = "/opt/vse/hadoop/etc/hadoop"
   hadoop_bin_dir = "/opt/vse/hadoop/bin"
   hadoop_home = '/opt/vse/hadoop'
-  pig_conf_dir = "/opt/vse/pig/conf"
-  pig_bin_dir = "/opt/vse/pig/bin"
+  pig_conf_dir = '/opt/vse/pig/conf'
+  pig_bin_dir = '/opt/vse/pig/bin'
 
 hdfs_user = config['configurations']['hadoop-env']['hdfs_user']
 hdfs_principal_name = config['configurations']['hadoop-env']['hdfs_principal_name']

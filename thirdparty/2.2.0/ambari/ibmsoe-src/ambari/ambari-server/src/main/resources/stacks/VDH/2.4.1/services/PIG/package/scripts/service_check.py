@@ -31,7 +31,7 @@ class PigServiceCheck(Script):
 
     cleanup_cmd = format("dfs -rmr {output_file} {input_file}")
     #cleanup put below to handle retries; if retrying there wil be a stale file that needs cleanup; exit code is fn of second command
-    create_file_cmd = format("{cleanup_cmd}; hadoop --config {hadoop_conf_dir} dfs -put /etc/passwd {input_file} ") #TODO: inconsistent that second command needs hadoop
+    create_file_cmd = format("{cleanup_cmd}; /opt/vse/hadoop/bin/hadoop --config {hadoop_conf_dir} dfs -put /etc/passwd {input_file} ") #TODO: inconsistent that second command needs hadoop
     test_cmd = format("fs -test -e {output_file}")
 
     ExecuteHadoop( create_file_cmd,
@@ -51,7 +51,7 @@ class PigServiceCheck(Script):
       mode = 0755
     )
 
-    Execute( format("pig {tmp_dir}/pigSmoke.sh"),
+    Execute( format("/opt/vse/pig/bin/pig {tmp_dir}/pigSmoke.sh"),
       tries     = 3,
       try_sleep = 5,
       path      = format('{pig_bin_dir}:/usr/sbin:/sbin:/usr/local/bin:/bin:/usr/bin'),

@@ -26,7 +26,7 @@ from pig import pig
 
 class PigClient(Script):
   def install(self, env):
-    sys.exit(0)
+    self.configure(env)
 
   def configure(self, env):
     import params
