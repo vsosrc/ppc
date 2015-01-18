@@ -118,7 +118,7 @@ def findNearestAgentPackageVersion(projectVersion):
     if projectVersion == "  ":
       Command = ["bash", "-c", "apt-cache -q show vdh-ppc-ambari-agent |grep 'Version\:'|cut -d ' ' -f 2|tr -d '\\n'|sed -s 's/[-|~][A-Za-z0-9]*//'"]
     else:
-      Command = ["bash", "-c", "apt-cache -q show ambari-agent |grep 'Version\:'|cut -d ' ' -f 2|grep '" +
+      Command = ["bash", "-c", "apt-cache -q show vdh-ppc-ambari-agent |grep 'Version\:'|cut -d ' ' -f 2|grep '" +
                projectVersion + "'|tr -d '\\n'|sed -s 's/[-|~][A-Za-z0-9]*//'"]
   else:
     Command = ["bash", "-c", "yum -q list all ambari-agent | grep '" + projectVersion +
