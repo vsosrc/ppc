@@ -1554,26 +1554,25 @@ module.exports =
       "name": "hive_database",
       "displayName": "Hive Database",
       "value": "",
-      "defaultValue": "New PostgreSQL Database",
+      "defaultValue": "New MySQL Database",
       "options": [
         {
-          displayName: 'New PostgreSQL Database',
+          displayName: 'New MySQL Database',
           foreignKeys: ['hive_ambari_database', 'hive_ambari_host']
+        },
+        {
+          displayName: 'Existing MySQL Database',
+          foreignKeys: ['hive_existing_mysql_database', 'hive_existing_mysql_host']
+        },
+        {
+          displayName: 'Existing PostgreSQL Database',
+          foreignKeys: ['hive_existing_postgresql_database', 'hive_existing_postgresql_host']
+        },
+        {
+          displayName: 'Existing Oracle Database',
+          foreignKeys: ['hive_existing_oracle_database', 'hive_existing_oracle_host'],
+          hidden: !App.supports.hiveOozieExtraDatabases
         }
-        //},
-        //{
-         // displayName: 'Existing MySQL Database',
-          //foreignKeys: ['hive_existing_mysql_database', 'hive_existing_mysql_host']
-        //},
-        //{
-         // displayName: 'Existing PostgreSQL Database',
-          //foreignKeys: ['hive_existing_postgresql_database', 'hive_existing_postgresql_host']
-        //},
-        //{
-         // displayName: 'Existing Oracle Database',
-          //foreignKeys: ['hive_existing_oracle_database', 'hive_existing_oracle_host'],
-         // hidden: !App.supports.hiveOozieExtraDatabases
-        //}
       ],
       "description": "MySQL will be installed by Ambari",
       "displayType": "radio button",
