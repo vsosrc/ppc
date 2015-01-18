@@ -33,7 +33,7 @@ from pprint import pformat
 from datetime import datetime
 
 AMBARI_PASSPHRASE_VAR_NAME = "AMBARI_PASSPHRASE"
-HOST_BOOTSTRAP_TIMEOUT = 300
+HOST_BOOTSTRAP_TIMEOUT = 3600
 # how many parallel bootstraps may be run at a time
 MAX_PARALLEL_BOOTSTRAPS = 20
 # How many seconds to wait between polling parallel bootstraps
