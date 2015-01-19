@@ -26,5 +26,6 @@ pkill -f HiveMetaStore
 kill -9 `ps -aef | grep HiveMetaStore | grep -v grep | awk '{print $2 }'`
 $z_base/sbin/stop_hue.sh
 $z_base/sbin/stop_hbase_thrift_server.sh
+pkill -f ThriftServer
 sleep 30
 echo " done..."
