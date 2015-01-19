@@ -24,7 +24,7 @@ fi
 if [ "${ACTION}" = "stop" ]
 then
     echo "Stopping Solr" 
-    kill -15 `cat ${PIDFILE}` 
+    /bin/kill -9 `cat ${PIDFILE}` 
     exit 0
 fi
 if [ "${ACTION}" = "install" ]

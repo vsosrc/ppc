@@ -5,7 +5,7 @@ killtree() {
     for child in $(pgrep -P $pid); do
         killtree $child
     done
-    [ $pid -ne $$ ] && kill -kill $pid
+    [ $pid -ne $$ ] && /bin/kill -9 $pid
 }
 PIDFILE=/opt/vse/sbin/oozie_ambari.pid
 if [ -f "/opt/vse/deploy.properties" ]

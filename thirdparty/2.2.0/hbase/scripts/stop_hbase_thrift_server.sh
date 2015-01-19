@@ -5,7 +5,7 @@ if [ "${THRIFT_PID}" = "" ]
 then
   echo "HBASE Thrift Server not running"
 else
- kill -9 ${THRIFT_PID} 2>/dev/null
+ /bin/kill -9 ${THRIFT_PID} 2>/dev/null
 fi
 echo "HBASE Thrift Server Stopped "
 exit 0
