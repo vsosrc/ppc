@@ -16,6 +16,7 @@ else
    exit 1
 fi
 . /opt/vse/deploy.properties
+export JAVA_HOME
 ACTION=${1}
 date 
 
