@@ -78,7 +78,7 @@
 
         <component>
           <name>MYSQL_SERVER</name>
-          <displayName>MySQL Server</displayName>
+          <displayName>PostgreSQL Server</displayName>
           <category>MASTER</category>
           <cardinality>0-1</cardinality>
           <commandScript>

@@ -23,5 +23,7 @@ $z_base/$z_oozie/bin/oozied.sh stop
 
 pkill -f HiveServer2
 pkill -f metastore
+$z_base/sbin/stop_hue.sh
+$z_base/sbin/stop_hbase_thrift_server.sh
 sleep 30
 echo " done..."

@@ -73,7 +73,7 @@ echo "Building for Platform : $platform on $buildhost"
 echo "Creating shell binaries"
 cp ./thirdparty/2.2.0/hadoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/hive/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/hbase/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/2.2.0/hbase/scripts/* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/pig/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/sqoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/2.2.0/flume/scripts/_* ./rpmscripts/1.0/ppc_vstore

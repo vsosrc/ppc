@@ -30,7 +30,8 @@ class DataNode(Script):
     env.set_params(params)
     n1 = params.namenode_host
     h1 = params.hostname
-    command = "/opt/vse/sbin/hdfs_ambari.sh " + h1 + " " + n1[0] + " "
+    j1 = params.java_home
+    command = "/opt/vse/sbin/hdfs_ambari.sh " + h1 + " " + n1[0] + " " + j1 + " "
     os.system(command)
     sys.exit(0)
     #self.install_packages(env, params.exclude_packages)

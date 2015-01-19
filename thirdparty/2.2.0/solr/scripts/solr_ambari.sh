@@ -29,5 +29,7 @@ fi
 if [ "${ACTION}" = "install" ]
 then
     echo "Install Solr" 
+    /opt/vse/sbin/_configure_solr "${NAMENODE}" "8020" "\/user\/solr\/solr-ddir"
+   
     exit 0
 fi
