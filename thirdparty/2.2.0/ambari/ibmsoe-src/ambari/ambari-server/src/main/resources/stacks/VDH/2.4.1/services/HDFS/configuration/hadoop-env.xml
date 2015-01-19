@@ -61,12 +61,14 @@
     <value>1024</value>
     <description>DataNode maximum Java heap size</description>
   </property>
+<!--
   <property>
     <name>proxyuser_group</name>
     <value>users</value>
     <property-type>GROUP</property-type>
     <description>Proxy user group.</description>
   </property>
+-->
   <property>
     <name>hdfs_user</name>
     <value>root</value>
