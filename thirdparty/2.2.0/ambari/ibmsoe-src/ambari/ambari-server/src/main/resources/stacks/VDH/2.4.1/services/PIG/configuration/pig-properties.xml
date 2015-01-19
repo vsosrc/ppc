@@ -81,7 +81,7 @@ pig.optimistic.files.concatenation=false;
 
 pig.disable.counter=false
 
-hcat.bin=/usr/bin/hcat
+hcat.bin=/opt/vse/hive/hcatalog/bin/hcat
 
     </value>
   </property>

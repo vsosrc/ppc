@@ -28,7 +28,7 @@ class SqoopServiceCheck(Script):
     env.set_params(params)
     if params.security_enabled:
         Execute(format("{kinit_path_local}  -kt {smoke_user_keytab} {smokeuser}"))
-    Execute("sqoop version",
+    Execute("/opt/vse/sqoop/bin/sqoop version",
             user = params.smokeuser,
             logoutput = True
     )

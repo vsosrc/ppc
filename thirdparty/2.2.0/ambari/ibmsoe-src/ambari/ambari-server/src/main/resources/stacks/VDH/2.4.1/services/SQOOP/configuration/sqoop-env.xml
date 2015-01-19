@@ -29,17 +29,16 @@
 # Set Hadoop-specific environment variables here.
 
 #Set path to where bin/hadoop is available
-#Set path to where bin/hadoop is available
-export HADOOP_HOME=${HADOOP_HOME:-/usr/lib/hadoop}
+export HADOOP_HOME=${HADOOP_HOME:-/opt/vse/hadoop}
 
 #set the path to where bin/hbase is available
-export HBASE_HOME=${HBASE_HOME:-/usr/lib/hbase}
+export HBASE_HOME=${HBASE_HOME:-/opt/vse/hbase}
 
 #Set the path to where bin/hive is available
-export HIVE_HOME=${HIVE_HOME:-/usr/lib/hive}
+export HIVE_HOME=${HIVE_HOME:-/opt/vse/hive}
 
 #Set the path for where zookeper config dir is
-export ZOOCFGDIR=${ZOOCFGDIR:-/etc/zookeeper/conf}
+export ZOOCFGDIR=${ZOOCFGDIR:-/opt/vse/zookeeper/conf}
 
 # add libthrift in hive to sqoop class path first so hive imports work
 export SQOOP_USER_CLASSPATH="`ls ${HIVE_HOME}/lib/libthrift-*.jar 2> /dev/null`:${SQOOP_USER_CLASSPATH}"
