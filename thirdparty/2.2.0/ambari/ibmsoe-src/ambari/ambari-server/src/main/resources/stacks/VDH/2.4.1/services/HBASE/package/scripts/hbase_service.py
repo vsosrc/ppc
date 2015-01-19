@@ -38,6 +38,12 @@ def hbase_service(
         not_if = no_op_test,
         user = params.hbase_user
       )
+      daemon_cmd_thrift = format("{cmd} start thrift")
+      
+      Execute ( daemon_cmd_thrift,
+        not_if = no_op_test,
+        user = params.hbase_user
+      )
     elif action == 'stop':
       daemon_cmd = format("{cmd} stop {role}")
 
