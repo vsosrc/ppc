@@ -22,7 +22,8 @@ $z_base/$z_zookeeper/bin/zkServer.sh stop
 $z_base/$z_oozie/bin/oozied.sh stop
 
 pkill -f HiveServer2
-pkill -f metastore
+pkill -f HiveMetaStore
+kill -9 `ps -aef | grep HiveMetaStore | grep -v grep | awk '{print $2 }'`
 $z_base/sbin/stop_hue.sh
 $z_base/sbin/stop_hbase_thrift_server.sh
 sleep 30
