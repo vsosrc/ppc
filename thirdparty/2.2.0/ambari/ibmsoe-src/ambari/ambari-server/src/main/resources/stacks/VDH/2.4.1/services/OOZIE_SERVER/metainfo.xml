@@ -21,7 +21,7 @@
         <service>
             <name>OOZIE_SERVER</name>
             <displayName>Oozie Server</displayName>
-            <comment>Development Environment for Hadoop</comment>
+            <comment>Workflow Scheduler System For Hadoop</comment>
             <version>4.0.1</version>
             <components>
                 <component>

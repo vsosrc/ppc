@@ -21,7 +21,7 @@
         <service>
             <name>HUE</name>
             <displayName>Hue Server</displayName>
-            <comment>Development Environment for Hadoop</comment>
+            <comment>Hadoop User Experience</comment>
             <version>4.8</version>
             <components>
                 <component>

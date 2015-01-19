@@ -92,7 +92,6 @@ def webhcat():
                 hdfs_user=params.hdfs_user,
                 hadoop_conf_dir=params.hadoop_conf_dir
   )
-  """
 
   CopyFromLocal('/opt/vse/archives/pig.tar.gz',
                 owner=params.webhcat_user,
@@ -111,3 +110,4 @@ def webhcat():
                 hdfs_user=params.hdfs_user,
                 hadoop_conf_dir=params.hadoop_conf_dir
   )
+  """
