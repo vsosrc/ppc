@@ -19,11 +19,17 @@ checkrc()
 
 ps aux | grep [h]adoop >/dev/null 2>&1
 #checkrc "" "Some of the Hadoop Servers are already running! Please stop them first.."
+LOGFILE=/opt/vse/logs/startppcvstore.log.$$
 source /opt/vse/sbin/.bashrc
+echo "Starting PPC vStore Components on  `date`" >${LOGFILE}
+env >>${LOGFILE}
 
 echo " "
 echo " Starting vStore Servers..."
 echo " Starting Hadoop..."
+echo " " >>${LOGFILE}
+echo " Starting vStore Servers..." >>${LOGFILE}
+echo " Starting Hadoop..." >>${LOGFILE}
 z_base="/opt/vse"
 z_hadoop="hadoop"
 z_hive="hive"
@@ -66,42 +72,51 @@ waitonsafemode()
 }
 
 
-$z_base/$z_hadoop/sbin/start-dfs.sh
+$z_base/$z_hadoop/sbin/start-dfs.sh 
 $z_base/$z_hadoop/sbin/start-yarn.sh
 $z_base/$z_hadoop/sbin/mr-jobhistory-daemon.sh start historyserver
 
 #wait for namenode to come out of safe mode
+echo "Waiting for removal of safemode " >>${LOGFILE}
 waitonsafemode
-$z_base/$z_hadoop/bin/hadoop fs -chmod -R 755 /tmp
-$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/flume/tweets >/dev/null 2>&1
-$z_base/$z_hadoop/bin/hadoop fs -chown -R flume:flume /user/flume >/dev/null 2>&1
-$z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >/dev/null 2>&1
-$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >/dev/null 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chmod -R 755 /tmp >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/flume/tweets >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chown -R flume:flume /user/flume >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >>${LOGFILE} 2>&1
 
 echo " Starting Metastore..."
-$z_base/$z_hive/bin/hive --service metastore >/dev/null 2>&1 &
+echo " Starting Metastore..." >>${LOGFILE}
+$z_base/$z_hive/bin/hive --service metastore >>${LOGFILE} 2>&1 &
 
-echo " Starting Hive..."
-$z_base/$z_hive/bin/hive --service hiveserver2 >/dev/null 2>&1 &
+echo " Starting Hive..." 
+echo " Starting Hive..." >>${LOGFILE}
+$z_base/$z_hive/bin/hive --service hiveserver2 >>${LOGFILE} 2>&1 &
 
 echo " Starting Zookeeper"
-$z_base/$z_zookeeper/bin/zkServer.sh start 
+echo " Starting Zookeeper" >>${LOGFILE}
+$z_base/$z_zookeeper/bin/zkServer.sh start  
 
-echo " Starting HBase"
+echo " Starting HBase" 
+echo " Starting HBase"  >>${LOGFILE}
 $z_base/$z_hbase/bin/start-hbase.sh 
 echo " Starting HBase thrift server"
+echo " Starting HBase thrift server" >>${LOGFILE}
 $z_base/$z_hbase/bin/hbase-daemon.sh start thrift 
 
 echo " Starting Oozie"
+echo " Starting Oozie" >>${LOGFILE}
 $z_base/$z_oozie/bin/oozied.sh start
 
 echo " Starting Solr"
+echo " Starting Solr" >>${LOGFILE}
 cd /opt/vse/solr/example
-${JAVA_HOME}/bin/java  -jar start.jar&
+${JAVA_HOME}/bin/java  -jar start.jar >>${LOGFILE} 2>&1&
 
-echo " Starting Hue"
+echo " Starting Hue" 
+echo " Starting Hue"  >>${LOGFILE}
 cd /opt/vse/hue/build/env/bin
-./supervisor &
+./supervisor >>${LOGFILE} 2>&1&
 
 cd /opt/vse
 

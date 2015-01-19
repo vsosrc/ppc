@@ -83,7 +83,7 @@ def webhcat():
             user=params.webhcat_user,
             path='/bin'
     )
-
+  """
   CopyFromLocal(params.hadoop_streeming_jars,
                 owner=params.webhcat_user,
                 mode=0755,
@@ -92,6 +92,7 @@ def webhcat():
                 hdfs_user=params.hdfs_user,
                 hadoop_conf_dir=params.hadoop_conf_dir
   )
+  """
 
   CopyFromLocal('/opt/vse/archives/pig.tar.gz',
                 owner=params.webhcat_user,

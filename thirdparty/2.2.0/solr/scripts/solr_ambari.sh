@@ -14,6 +14,7 @@ date
 if [ "${ACTION}" = "start" ]
 then
     echo "Starting Solr" 
+    /opt/vse/sbin/_configure_solr.sh "${NAMENODE}" "8020" "\/user\/solr\/solr-ddir"
     /opt/vse/hadoop/bin/hadoop fs -mkdir /user/solr/solr-ddir
     cd /opt/vse/solr/example/
     ${JAVA_HOME}/bin/java  -jar start.jar&
@@ -29,7 +30,5 @@ fi
 if [ "${ACTION}" = "install" ]
 then
     echo "Install Solr" 
-    /opt/vse/sbin/_configure_solr "${NAMENODE}" "8020" "\/user\/solr\/solr-ddir"
-   
     exit 0
 fi

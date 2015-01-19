@@ -22,6 +22,7 @@ date
 if [ "${ACTION}" = "start" ]
 then
     echo "Starting Oozie" 
+    /opt/vse/sbin/_configure_oozie.sh ${NAMENODE} 8020 ${HOSTNAME} 11000 11001 11443 
     cd /opt/vse/oozie/bin 
     ./oozied.sh start  
     PID=`ps -aef | grep 'oozie-server' | grep -v grep | awk '{ print $2}'` 
@@ -37,6 +38,5 @@ fi
 if [ "${ACTION}" = "install" ]
 then
     echo "Install Oozie" 
-    /opt/vse/sbin/_configure_oozie.sh ${NAMENODE} 8020 ${HOSTNAME} 11000 11001 11443 
     exit 0
 fi
