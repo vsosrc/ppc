@@ -1,0 +1,14 @@
+nosetests hadoop liboozie libsaml librdbms libopenid liboauth libsolr desktop indexer about beeswax filebrowser hbase help impala jobbrowser jobsub metastore oozie pig proxy rdbms search spark sqoop useradmin zookeeper -a !requires_hadoop --verbosity=1
+Creating test database for alias 'default'...
+Destroying old test database 'default'...
+...............................................................................................................S................................................S.........................................S..............................................................127.0.0.1 - - [26/Jan/2015 12:11:19] "GET /?foo=bar HTTP/1.1" 200 -
+.127.0.0.1 - - [26/Jan/2015 12:11:19] "POST / HTTP/1.1" 200 -
+.127.0.0.1 - - [26/Jan/2015 12:11:20] "GET //foo//fred_ok HTTP/1.1" 200 -
+............................................
+----------------------------------------------------------------------
+Ran 311 tests in 369.197s
+
+OK (SKIP=3)
+Destroying test database for alias 'default'...
+
+
