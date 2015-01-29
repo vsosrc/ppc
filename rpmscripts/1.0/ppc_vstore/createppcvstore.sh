@@ -39,6 +39,7 @@ cp $1/rpmscripts/1.0/ppc_vstore/postinstall_ppcvstore.sh ${RPMDIR}/sbin
 cp $1/rpmscripts/1.0/ppc_vstore/*.sql ${RPMDIR}/sbin
 cp $1/rpmscripts/1.0/ppc_vstore/hadoopdb.template ${RPMDIR}/sbin/.hadoopdb.sql
 cp $1/rpmscripts/1.0/ppc_vstore/bashrc ${RPMDIR}/sbin/.bashrc
+cp $1/rpmscripts/1.0/ppc_vstore/setvdhenv.sh ${RPMDIR}/sbin/
 cp $1/archives/* ${RPMDIR}/archives
 #license scripts
 cp $1/license/VDH-End-User-License-Agreement ${RPMDIR}/.license/
