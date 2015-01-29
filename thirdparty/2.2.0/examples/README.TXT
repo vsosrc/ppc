@@ -5,6 +5,7 @@ The examples directory contains all files and scripts to perform integration tes
 - HIVE
 - HCATALOG
 - HBASE
+- SOLR
 
 Steps to perform the following integration tests.
 
@@ -58,5 +59,11 @@ This script uses the command file hbase-com.txt which has Hbase commands to crea
 
 Verify the results with HUE or use Hbase shell.
 
- 
+SOLR:
+------
+
+Run solr-test.sh.
+
+This test adds document to the collection1 of Solr that is brought up by default. The test then browses the data and also queries the data.
+
 
