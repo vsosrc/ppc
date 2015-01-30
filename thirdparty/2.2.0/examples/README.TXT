@@ -25,8 +25,8 @@ This will move the worldcup table from postgres into HDFS and HIVE. This table w
 
 After running the script, check the results in HDFS and HIVE using the following hadoop commands or use HUE to browse the data.
 
-hadoop dfs -ls /user/root
-hadoop dfs -ls /users/hive/warehouse/worldcup
+hadoop fs -ls /user
+hadoop fs -ls /users/hive/warehouse/worldcup
 
 PIG:
 ----
