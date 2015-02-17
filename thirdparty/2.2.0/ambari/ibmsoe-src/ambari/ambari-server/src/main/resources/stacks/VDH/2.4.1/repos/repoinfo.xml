@@ -18,17 +18,16 @@
 <reposinfo>
   <os type="ubuntu14">
     <repo>
-      <baseurl>REPLACE_WITH_UBUNTU14_URL</baseurl>
+      <baseurl>repo.veristorm.com</baseurl>
       <repoid>VDH-2.4.1</repoid>
       <reponame>VDH</reponame>
     </repo>
-<!--
-    TODO: VDH-UTILS
+  </os>
+  <os type="redhat7">
     <repo>
-      <baseurl>http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.19/repos/ubuntu12</baseurl>
-      <repoid>HDP-UTILS-1.1.0.19</repoid>
-      <reponame>HDP-UTILS</reponame>
+      <baseurl>sys-71347/rpmrepo</baseurl>
+      <repoid>VDH-2.4.1</repoid>
+      <reponame>VDH</reponame>
     </repo>
--->
   </os>
 </reposinfo>

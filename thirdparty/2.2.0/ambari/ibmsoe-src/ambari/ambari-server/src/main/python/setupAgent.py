@@ -49,7 +49,12 @@ def execOsCommand(osCommand, tries=1, try_sleep=0):
   return ret
 
 def installVDP():
-  Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "vdh-ppc-vstore"]
+  if OSCheck.is_suse_family():
+    Command = ["zypper", "--no-gpg-checks", "install", "-y", "vdh-ppc-vstore"]
+  elif OSCheck.is_ubuntu_family():
+     Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "vdh-ppc-vstore"]
+  else:
+     Command = ["yum", "-y", "install", "--nogpgcheck", "vdh-ppc-vstore"]
   return execOsCommand(Command, tries=3, try_sleep=10)
 
 def installAgent(projectVersion):
