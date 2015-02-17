@@ -4,7 +4,7 @@
 
 # ************ remove worldcup file in hdfs  if present
 
-/opt/vse/hadoop/bin/hadoop fs rm -r /user/worldcup
+/opt/vse/hadoop/bin/hadoop fs -rm -r -f /user/worldcup
 
 # *************  import worldcup data from postgres database testdb to hdfs
 
@@ -12,7 +12,7 @@
 
 # ************ remove worldcup file for hive import if present
  
-/opt/vse/hadoop/bin/hadoop fs rm -r /user/root/worldcup
+/opt/vse/hadoop/bin/hadoop fs -rm -r -f /user/root/worldcup
 
 # *************  import worldcup data from postgres database testdb to hive
  
