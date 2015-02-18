@@ -46,7 +46,7 @@
 
     <property>
         <name>oozie.system.id</name>
-        <value>oozie-SED_OOZIE_USER_NAME</value>
+        <value>SED_OOZIE_USER_NAME</value>
         <description>
             The Oozie system ID.
         </description>

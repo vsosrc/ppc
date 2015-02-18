@@ -84,6 +84,8 @@ $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/flume/tweets >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -chown -R flume:flume /user/flume >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chmod -R 777 /user/hive >>${LOGFILE} 2>&1
 
 echo " Starting Metastore..."
 echo " Starting Metastore..." >>${LOGFILE}
@@ -107,6 +109,8 @@ $z_base/$z_hbase/bin/hbase-daemon.sh start thrift
 echo " Starting Oozie"
 echo " Starting Oozie" >>${LOGFILE}
 $z_base/$z_oozie/bin/oozied.sh start
+cd /opt/vse/oozie
+$z_base/$z_hadoop/bin/hadoop fs -put share share
 
 echo " Starting Solr"
 echo " Starting Solr" >>${LOGFILE}
