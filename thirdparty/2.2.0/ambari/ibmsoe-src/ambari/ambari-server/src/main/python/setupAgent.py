@@ -61,12 +61,12 @@ def installAgent(projectVersion):
   """ Run install and make sure the agent install alright """
   # The command doesn't work with file mask ambari-agent*.rpm, so rename it on agent host
   if OSCheck.is_suse_family():
-    Command = ["zypper", "--no-gpg-checks", "install", "-y", "ambari-agent-" + projectVersion]
+    Command = ["zypper", "--no-gpg-checks", "install", "-y", "vdh-ppc-ambari-agent"]
   elif OSCheck.is_ubuntu_family():
     # add * to end of version in case of some test releases
     Command = ["apt-get", "install", "-y", "--allow-unauthenticated", "vdh-ppc-ambari-agent"]
   else:
-    Command = ["yum", "-y", "install", "--nogpgcheck", "ambari-agent-" + projectVersion]
+    Command = ["yum", "-y", "install", "--nogpgcheck", "vdh-ppc-ambari-agent"]
   return execOsCommand(Command, tries=3, try_sleep=10)
 
 
@@ -117,7 +117,7 @@ def findNearestAgentPackageVersion(projectVersion):
   if projectVersion == "":
     projectVersion = "  "
   if OSCheck.is_suse_family():
-    Command = ["bash", "-c", "zypper --no-gpg-checks -q search -s --match-exact ambari-agent | grep '" + projectVersion +
+    Command = ["bash", "-c", "zypper --no-gpg-checks -q search -s --match-exact vdh-ppc-ambari-agent | grep '" + projectVersion +
                                  "' | cut -d '|' -f 4 | head -n1 | sed -e 's/-\w[^:]*//1' "]
   elif OSCheck.is_ubuntu_family():
     if projectVersion == "  ":
@@ -126,7 +126,7 @@ def findNearestAgentPackageVersion(projectVersion):
       Command = ["bash", "-c", "apt-cache -q show vdh-ppc-ambari-agent |grep 'Version\:'|cut -d ' ' -f 2|grep '" +
                projectVersion + "'|tr -d '\\n'|sed -s 's/[-|~][A-Za-z0-9]*//'"]
   else:
-    Command = ["bash", "-c", "yum -q list all ambari-agent | grep '" + projectVersion +
+    Command = ["bash", "-c", "yum -q list all vdh-ppc-ambari-agent | grep '" + projectVersion +
                               "' | sed -re 's/\s+/ /g' | cut -d ' ' -f 2 | head -n1 | sed -e 's/-\w[^:]*//1' "]
   return execOsCommand(Command)
 
@@ -135,7 +135,7 @@ def isAgentPackageAlreadyInstalled(projectVersion):
     if OSCheck.is_ubuntu_family():
       Command = ["bash", "-c", "dpkg-query -W -f='${Status} ${Version}\n' vdh-ppc-ambari-agent | grep -v deinstall | grep " + projectVersion]
     else:
-      Command = ["bash", "-c", "rpm -qa | grep ambari-agent-"+projectVersion]
+      Command = ["bash", "-c", "rpm -qa | grep vdh-ppc-ambari-agent-"+projectVersion]
     ret = execOsCommand(Command)
     res = False
     if ret["exitstatus"] == 0 and ret["log"][0].strip() != "":
@@ -146,13 +146,13 @@ def isAgentPackageAlreadyInstalled(projectVersion):
 def getAvaliableAgentPackageVersions():
   if OSCheck.is_suse_family():
     Command = ["bash", "-c",
-        "zypper --no-gpg-checks -q search -s --match-exact ambari-agent | grep ambari-agent | sed -re 's/\s+/ /g' | cut -d '|' -f 4 | tr '\\n' ', ' | sed -s 's/[-|~][A-Za-z0-9]*//g'"]
+        "zypper --no-gpg-checks -q search -s --match-exact vdh-ppc-ambari-agent | grep vdh-ppc-ambari-agent | sed -re 's/\s+/ /g' | cut -d '|' -f 4 | tr '\\n' ', ' | sed -s 's/[-|~][A-Za-z0-9]*//g'"]
   elif OSCheck.is_ubuntu_family():
     Command = ["bash", "-c",
         "apt-cache -q show vdh-ppc-ambari-agent|grep 'Version\:'|cut -d ' ' -f 2| tr '\\n' ', '|sed -s 's/[-|~][A-Za-z0-9]*//g'"]
   else:
     Command = ["bash", "-c",
-        "yum -q list all ambari-agent | grep -E '^ambari-agent' | sed -re 's/\s+/ /g' | cut -d ' ' -f 2 | tr '\\n' ', ' | sed -s 's/[-|~][A-Za-z0-9]*//g'"]
+        "yum -q list all vdh-ppc-ambari-agent | grep -E '^vdh-ppc-ambari-agent' | sed -re 's/\s+/ /g' | cut -d ' ' -f 2 | tr '\\n' ', ' | sed -s 's/[-|~][A-Za-z0-9]*//g'"]
   return execOsCommand(Command)
 
 
