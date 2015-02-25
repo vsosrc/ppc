@@ -193,6 +193,7 @@ def get_postgre_hba_dir(OS_FAMILY):
     return os.path.join(PG_HBA_INIT_FILES[OS_FAMILY], get_ubuntu_pg_version(),
                         "main")
   else:
+    return PG_HBA_ROOT_DEFAULT
     if not os.path.isfile(PG_HBA_INIT_FILES[OS_FAMILY]):
       # Link: /etc/init.d/postgresql --> /etc/init.d/postgresql-9.1
       os.symlink(glob.glob(PG_HBA_INIT_FILES[OS_FAMILY] + '*')[0],

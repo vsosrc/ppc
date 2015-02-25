@@ -251,10 +251,7 @@ PG_STATUS_RUNNING = utils.get_postgre_running_status(OS_TYPE)
 PG_DEFAULT_PASSWORD = "bigdata"
 SERVICE_CMD = "/usr/bin/env service"
 PG_SERVICE_NAME = "postgresql"
-'''
 PG_HBA_DIR = utils.get_postgre_hba_dir(OS_FAMILY)
-'''
-PG_HBA_DIR = "/var/lib/pgsql/data"
 
 PG_ST_CMD = "%s %s status" % (SERVICE_CMD, PG_SERVICE_NAME)
 if os.path.isfile("/usr/bin/postgresql-setup"):
