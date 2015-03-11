@@ -53,7 +53,7 @@
   </property>
    <property>
     <name>hbase_user</name>
-    <value>root</value>
+    <value>hbase</value>
     <property-type>USER</property-type>
     <description>HBase User Name.</description>
   </property>

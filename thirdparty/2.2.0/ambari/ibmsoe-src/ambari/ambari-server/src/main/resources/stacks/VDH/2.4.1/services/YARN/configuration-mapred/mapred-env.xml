@@ -33,7 +33,7 @@
   </property>
   <property>
     <name>mapred_user</name>
-    <value>root</value>
+    <value>mapred</value>
     <property-type>USER</property-type>
     <description>Mapreduce User</description>
   </property>

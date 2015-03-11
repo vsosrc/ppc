@@ -33,13 +33,13 @@
   </property>
   <property>
     <name>gmetad_user</name>
-    <value>root</value>
+    <value>nobody</value>
     <property-type>USER GROUP</property-type>
     <description>User </description>
   </property>
     <property>
     <name>gmond_user</name>
-    <value>root</value>
+    <value>nobody</value>
     <property-type>USER GROUP</property-type>
     <description>User </description>
   </property>

@@ -23,5 +23,4 @@ from resource_management import *
 config = Script.get_config()
 
 pid_dir = config['configurations']['hbase-env']['hbase_pid_dir']
-#hbase_user = config['configurations']['hbase-env']['hbase_user']
-hbase_user = 'root'
+hbase_user = config['configurations']['hbase-env']['hbase_user']

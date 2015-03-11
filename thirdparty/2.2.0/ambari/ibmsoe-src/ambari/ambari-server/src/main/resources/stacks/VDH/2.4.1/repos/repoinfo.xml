@@ -18,7 +18,7 @@
 <reposinfo>
   <os type="ubuntu14">
     <repo>
-      <baseurl>repo.veristorm.com</baseurl>
+      <baseurl>REPLACE_WITH_UBUNTU14_URL</baseurl>
       <repoid>VDH-2.4.1</repoid>
       <reponame>VDH</reponame>
     </repo>

@@ -62,6 +62,7 @@ def setup_java():
   """
   import params
 
+  return
   jdk_curl_target = format("{artifact_dir}/{jdk_name}")
   java_dir = os.path.dirname(params.java_home)
   java_exec = format("{java_home}/bin/java")

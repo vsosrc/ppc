@@ -61,17 +61,15 @@
     <value>1024</value>
     <description>DataNode maximum Java heap size</description>
   </property>
-<!--
   <property>
     <name>proxyuser_group</name>
     <value>users</value>
     <property-type>GROUP</property-type>
     <description>Proxy user group.</description>
   </property>
--->
   <property>
     <name>hdfs_user</name>
-    <value>root</value>
+    <value>hdfs</value>
     <property-type>USER</property-type>
     <description>User to run HDFS as</description>
   </property>
@@ -125,8 +123,8 @@ export HADOOP_SECONDARYNAMENODE_OPTS="-server -XX:ParallelGCThreads=8 -XX:+UseCo
 # The following applies to multiple commands (fs, dfs, fsck, distcp etc)
 export HADOOP_CLIENT_OPTS="-Xmx${HADOOP_HEAPSIZE}m $HADOOP_CLIENT_OPTS"
 # On secure datanodes, user to run the datanode as after dropping privileges
-#export HADOOP_SECURE_DN_USER={{hdfs_user}}
-export HADOOP_SECURE_DN_USER=""
+export HADOOP_SECURE_DN_USER={{hdfs_user}}
+#export HADOOP_SECURE_DN_USER=""
 
 # Extra ssh options.  Empty by default.
 export HADOOP_SSH_OPTS="-o ConnectTimeout=5 -o SendEnv=HADOOP_CONF_DIR"
