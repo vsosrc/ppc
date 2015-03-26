@@ -8,34 +8,19 @@
 #invoke with s390x Hadoop option for ppc compile
 
 platform=""
-buildhost="192.168.55.14"
-rootuser="root"
-rootpass="rootpass"
-cpath="/root/c2bin"
-rpath="/root/shell2bin/tmpbuild"
-#value of hdp or cdh for patching libs
-distro="hdp"
-#value of IBM or NOIBM for patching licensing
-integration="NOIBM"
-include=""
-
-if [  -z "${2}" ]
-then
-	include="NoHadoop"
-else
-	include=${2}
-	
-fi
+hadoop_ver="2.4.1"
+#values for os are ubuntu|rhel
+os="rhel"
 
 checkargs()
 {
 	if [  -z "${1}" ]
 	then
-  		echo "Usage: $0 <s390x or x86>" >&2
+  		echo "Usage: $0 <ppcle>" >&2
   		exit 1
-	elif  [  "$1" != "s390x"  -a  "$1" != "x86"  ]
+	elif  [  "$1" != "ppcle" ]
 	then
-  		echo "Usage: $0 <s390x or x86>" >&2
+  		echo "Usage: $0 <ppcle>" >&2
 		exit 1
 	
 	fi
@@ -59,33 +44,23 @@ BUILDHOME=${PWD}
 BUILDDIR=${PWD}/build
 mkdir ${BUILDDIR} 2>/dev/null
 
-if [ "$platform" == "x86" ]
-then
-	buildhost="`hostname -i`"
-	rootuser="cloudera"
-	rootpass="cloudera"
-	cpath="${BUILDDIR}/root/c2bin"
-	rpath="${BUILDHOME}/thirdparty/tmpbuild"
-fi
-echo "Building for Platform : $platform on $buildhost"
+echo "Building for Platform : $platform"
 
 #Creating shell binaries
 echo "Creating shell binaries"
-cp ./thirdparty/2.2.0/hadoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/hive/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/hbase/scripts/* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/pig/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/sqoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/flume/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/hadoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/hive/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/hbase/scripts/* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/pig/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/sqoop/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/flume/scripts/_* ./rpmscripts/1.0/ppc_vstore
 #there are no scripts for AVRO
-#cp ./thirdparty/2.2.0/avro/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/hue/scripts/* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/zookeeper/scripts/_* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/solr/scripts/* ./rpmscripts/1.0/ppc_vstore
-cp ./thirdparty/2.2.0/oozie/scripts/* ./rpmscripts/1.0/ppc_vstore
+#cp ./thirdparty/$hadoop_ver/avro/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/hue/scripts/* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/zookeeper/scripts/_* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/solr/scripts/* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/oozie/scripts/* ./rpmscripts/1.0/ppc_vstore
 
-sh makerpmscripts.sh $buildhost $rootuser $rootpass $rpath $platform
-echo "Waiting"
-sleep 15
 cd ${BUILDHOME}
-sh ./create_ppcvstormrpms.sh $platform $integration $include
+
+sh ${BUILDHOME}/rpmscripts/1.0/ppc_vstore/createppcvstore.sh ${BUILDHOME} $platform $hadoop_ver $os
