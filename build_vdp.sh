@@ -6,6 +6,7 @@
 ###########################################################
 #!/bin/bash 
 #invoke with s390x Hadoop option for ppc compile
+set -xe
 
 platform=""
 hadoop_ver="2.4.1"
@@ -16,15 +17,27 @@ checkargs()
 {
 	if [  -z "${1}" ]
 	then
-  		echo "Usage: $0 <ppcle>" >&2
+  		echo "Usage: $0 <ppcle> <rhel|ubuntu>" >&2
   		exit 1
-	elif  [  "$1" != "ppcle" ]
+	elif  [  "${1}" != "ppcle" ]
 	then
-  		echo "Usage: $0 <ppcle>" >&2
+  		echo "Usage: $0 <ppcle> <rhel|ubuntu>" >&2
 		exit 1
 	
 	fi
 	platform=$1
+
+	if [  -z "${2}" ]
+	then
+  		echo "Usage: $0 <ppcle> <rhel|ubuntu>" >&2
+  		exit 1
+	elif  (  [ "${2}" != "ubuntu" ] &&  [ "${2}" != "rhel" ] )
+	then
+  		echo "Usage: $0 <ppcle> <rhel|ubuntu>" >&2
+		exit 1
+	
+	fi
+	os=$2
 }
 
 checkrc()
@@ -44,7 +57,7 @@ BUILDHOME=${PWD}
 BUILDDIR=${PWD}/build
 mkdir ${BUILDDIR} 2>/dev/null
 
-echo "Building for Platform : $platform"
+echo "Building for Platform : $platform on $os ... "
 
 #Creating shell binaries
 echo "Creating shell binaries"
