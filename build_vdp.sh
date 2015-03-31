@@ -5,8 +5,6 @@
 #
 ###########################################################
 #!/bin/bash 
-#invoke with s390x Hadoop option for ppc compile
-set -xe
 
 platform=""
 hadoop_ver="2.4.1"
