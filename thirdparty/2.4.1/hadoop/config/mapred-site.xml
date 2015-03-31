@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+  <name>mapreduce.map.memory.mb</name>
+  <value>2048</value>
+</property>
+
+<property>
+  <name>mapreduce.reduce.memory.mb</name>
+  <value>2048</value>
+</property>
+
+<property>
+  <name>mapreduce.reduce.java.opts</name>
+  <value>-Xmx1024m</value>
+</property>
+
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+
+<property>
+  <name>mapreduce.application.classpath</name>
+  <value>$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/share/hadoop/common/*,$HADOOP_COMMON_HOME/share/hadoop/common/lib/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*,$HADOOP_YARN_HOME/share/hadoop/yarn/*,$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*</value>
+</property>
+
+  <property>
+    <name>mapreduce.cluster.temp.dir</name>
+    <value>SED_CLUSTERTEMPDIR_MAPRED</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>mapreduce.cluster.local.dir</name>
+    <value>SED_CLUSTERLOCALDIR_MAPRED</value>
+    <final>true</final>
+  </property>
+
+<property>
+  <name>mapred.jobtracker.plugins</name>
+  <value>org.apache.hadoop.thriftfs.ThriftJobTrackerPlugin</value>
+  <description>Comma-separated list of jobtracker plug-ins to be activated.
+  </description>
+</property>
+
+</configuration>

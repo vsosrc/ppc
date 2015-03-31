@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<configuration>
+
+<!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address</name>
+    <value>SED_RTRACKKERIPADDRESS_YARN:54312</value>
+    <description>host is the hostname of the resource manager and 
+    port is the port on which the NodeManagers contact the Resource Manager.
+    </description>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>SED_SCHEDULERIPADDRESS_YARN:54313</value>
+    <description>host is the hostname of the resourcemanager and port is the port
+    on which the Applications in the cluster talk to the Resource Manager.
+    </description>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    <description>In case you do not want to use the default scheduler</description>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.address</name>
+    <value>SED_RMIPADDRESS_YARN:54314</value>
+    <description>the host is the hostname of the ResourceManager and the port is the port on which the clients can talk to the Resource Manager. </description>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>SED_NMLOCALDIRS_YARN</value>
+    <description>the local directories used by the nodemanager</description>
+  </property>
+
+ <property>
+    <name>yarn.nodemanager.hostname</name>
+    <value>SED_NMHOSTNAME_YARN</value>
+    <description>the host is the hostname of the ResourceManager and the port is the port on which the clients can talk to the Resource Manager. </description>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.address</name>
+    <value>SED_NMIPADDRESS_YARN:54315</value>
+    <description>the nodemanagers bind to this port</description>
+  </property>  
+
+  <property>
+    <name>yarn.scheduler.minimum-allocation-mb</name>
+    <value>1024</value>
+    <description>the amount of memory on the NodeManager in MB</description>
+    <final>true</final>
+  </property>
+  <property>
+    <name>yarn.application.classpath</name>
+    <value>$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/share/hadoop/common/*,$HADOOP_COMMON_HOME/share/hadoop/common/lib/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*,$HADOOP_YARN_HOME/share/hadoop/yarn/*,$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*,$HADOOP_YARN_HOME/share/hadoop/mapreduce/*,$HADOOP_YARN_HOME/share/hadoop/mapreduce/lib/*</value>
+  </property>
+   <property>
+    <name>yarn.nodemanager.log-dirs</name>
+    <value>SED_NMLOGDIR_YARN</value>
+    <description>the directories used by Nodemanagers as log directories</description>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+    <description>shuffle service that needs to be set for Map Reduce to run </description>
+  </property>
+
+ <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    <description>shuffle service that needs to be set for Map Reduce to run </description>
+  </property>
+
+</configuration>
