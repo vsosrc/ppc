@@ -28,3 +28,23 @@ Binaries :
 ----------
 Pre-build Binaries for PPC for Ubuntu 14.04 LE and RHEL 7.1 LE are available at http://repo.veristorm.com/repos/vdh/
 
+Local Repo Setup to pull Veristorm hosted binaries:
+---------------------------------------------------
+
+Ubuntu :
+* Create vdh.list using the following command,
+echo "deb http://repo.veristorm.com/repos/vdh/apt/debian vdh-ppc-vstore main" > /etc/apt/sources.list.d/vdh.list
+
+RHEL :
+
+* cd /etc/yum.repos.d/
+* Edit ambari.list and add following 
+* 
+[vdh-repo]
+name=vdh-repo
+baseurl=http://repo.veristorm.com/repos/vdh/rpm/current
+enabled=1
+gpgcheck=0
+
+
+
