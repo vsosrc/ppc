@@ -1,4 +1,4 @@
-please create tars with following names from their respective projects under https://github.com/vsosrc and put it under respective thirdparty directories under https://github.com/vsosrc/ppc:
+please create tars with following names from their respective projects under https://github.com/vsosrc and put it under respective thirdparty directories under https://github.com/vsosrc/ppc. Please follow build process as documented under that component:
 AVRO : avro-1.7.4.tar.gz
 FLUME : apache-flume-1.5.0.1-bin.tar.gz
 HADOOP : hadoop-2.4.1.tar.gz
