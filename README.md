@@ -32,14 +32,14 @@ Local Repo Setup to pull Veristorm hosted binaries:
 ---------------------------------------------------
 
 Ubuntu :
-~~~~~~~~
+-------
 * Create vdh.list using the following command,
 echo "deb http://repo.veristorm.com/repos/vdh/apt/debian vdh-ppc-vstore main" > /etc/apt/sources.list.d/vdh.list
 
 RHEL :
-~~~~~~
+------
 * cd /etc/yum.repos.d/
-* Create vdh.list and add following :
+* Create vdh.repo and add following :
 
 [vdh-repo]
 
