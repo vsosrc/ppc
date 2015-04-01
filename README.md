@@ -26,7 +26,7 @@ https://github.com/rha2z/ppc/issues and prefix the title with [ vdh_2.4.1: "blah
 
 Binaries :
 ----------
-Pre-build Binaries for PPC for Ubuntu 14.04 LE and RHEL 7.1 LE are available at http://repo.veristorm.com/repos/vdh/
+Pre-built Binaries for PPC for Ubuntu 14.04 LE and RHEL 7.1 LE are available at http://repo.veristorm.com/repos/vdh/
 
 Local Repo Setup to pull Veristorm hosted binaries:
 ---------------------------------------------------
