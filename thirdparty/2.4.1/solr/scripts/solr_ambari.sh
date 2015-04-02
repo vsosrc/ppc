@@ -15,7 +15,9 @@ if [ "${ACTION}" = "start" ]
 then
     echo "Starting Solr" 
     /opt/vse/sbin/_configure_solr.sh "${NAMENODE}" "8020" "\/user\/solr\/solr-ddir"
-    /opt/vse/hadoop/bin/hadoop fs -mkdir /user/solr/solr-ddir
+    su hdfs '/opt/vse/hadoop/bin/hadoop fs -mkdir /user/solr'
+    su hdfs '/opt/vse/hadoop/bin/hadoop fs -mkdir /user/solr/solr-ddir'
+    su hdfs '/opt/vse/hadoop/bin/hadoop fs -chmod -R 777 /user/solr'
     cd /opt/vse/solr/example/
     ${JAVA_HOME}/bin/java  -jar start.jar&
     echo $! >${PIDFILE}
