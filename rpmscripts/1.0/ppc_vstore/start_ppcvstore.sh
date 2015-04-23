@@ -86,6 +86,7 @@ $z_base/$z_hadoop/bin/hadoop fs -chmod -R 770 /user/flume >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/solr/solr-ddir >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse >>${LOGFILE} 2>&1
 $z_base/$z_hadoop/bin/hadoop fs -chmod -R 777 /user/hive >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chown hdfs / >>${LOGFILE} 2>&1
 
 echo " Starting Metastore..."
 echo " Starting Metastore..." >>${LOGFILE}
@@ -108,9 +109,15 @@ $z_base/$z_hbase/bin/hbase-daemon.sh start thrift
 
 echo " Starting Oozie"
 echo " Starting Oozie" >>${LOGFILE}
+# Create sharelib on HDFS
+
+$z_base/$z_hadoop/bin/hadoop fs -mkdir /user/oozie >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -copyFromLocal /opt/vse/oozie/share /user/oozie/. >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chown oozie:hadoop /user/oozie >>${LOGFILE} 2>&1
+$z_base/$z_hadoop/bin/hadoop fs -chmod -R 755 /user/oozie >>${LOGFILE} 2>&1
+
 $z_base/$z_oozie/bin/oozied.sh start
 cd /opt/vse/oozie
-$z_base/$z_hadoop/bin/hadoop fs -put share share
 
 echo " Starting Solr"
 echo " Starting Solr" >>${LOGFILE}
@@ -119,6 +126,7 @@ ${JAVA_HOME}/bin/java  -jar start.jar >>${LOGFILE} 2>&1&
 
 echo " Starting Hue" 
 echo " Starting Hue"  >>${LOGFILE}
+/opt/vse/hadoop/bin/hadoop dfs -chown hdfs /
 cd /opt/vse/hue/build/env/bin
 ./supervisor >>${LOGFILE} 2>&1&
 

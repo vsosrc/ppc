@@ -107,9 +107,14 @@ then
 fi
 
 #creating hue distro
+cp ${THIRDPARTY}/hue/split/xaa ${RPMDIR}
+cp ${THIRDPARTY}/hue/split/xab ${RPMDIR}
+cp ${THIRDPARTY}/hue/split/xac ${RPMDIR}
 cp ${THIRDPARTY}/hue/hue-3.6.0.tar.gz ${RPMDIR}
+cat xaa xab xac > ./hue-3.6.0.tar.gz
 tar xvf ./hue-3.6.0.tar.gz
 rm -f ./hue-3.6.0.tar.gz
+rm -f ./xaa ./xab ./xac
 if [ $PLATFORM = "ppcle" ]
 then
 	cp ${THIRDPARTY}/hue/config/* ${RPMDIR}/hue-3.6.0/desktop/conf
