@@ -167,14 +167,23 @@ then
 	cp ${THIRDPARTY}/oozie/config/* ${RPMDIR}/oozie-4.0.1/conf
 fi
 
+#creating knox distro
+cp ${THIRDPARTY}/knox/knox-0.5.0.tar.gz ${RPMDIR}
+tar xvf ./knox-0.5.0.tar.gz
+rm -f ./knox-0.5.0.tar.gz
+if [ $PLATFORM = "ppcle" ]
+then
+	cp ${THIRDPARTY}/knox/config/* ${RPMDIR}/knox-0.5.0/conf/topologies
+fi
+
 chmod 711 ${RPMDIR}/sbin/*.sh
 if [ $OS = "ubuntu" ]
 then
-	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n vdh-ppc-vstore -v 2.4.1 -a native --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
+	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n vdh-ppc-vstore -v 2.4.1 -a native --prefix /opt/vse --iteration 1 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 	mv -f *.deb ..
 else
 	#sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.4.1 -a ppc64le --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
-	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.4.1 -a noarch --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
+	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.4.1 -a noarch --prefix /opt/vse --iteration 1 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 	mv -f *.rpm ..
 fi
 

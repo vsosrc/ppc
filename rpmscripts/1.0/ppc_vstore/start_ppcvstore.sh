@@ -130,6 +130,10 @@ echo " Starting Hue"  >>${LOGFILE}
 cd /opt/vse/hue/build/env/bin
 ./supervisor >>${LOGFILE} 2>&1&
 
+echo " Starting Knox" 
+echo " Starting Knox"  >>${LOGFILE}
+su -l knox -c '/opt/vse/knox/bin/gateway.sh start
+
 cd /opt/vse
 
 echo " done..."

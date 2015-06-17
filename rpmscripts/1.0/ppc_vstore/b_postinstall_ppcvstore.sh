@@ -17,6 +17,7 @@ ln -s /opt/vse/hue-3.6.0 /opt/vse/hue
 ln -s /opt/vse/zookeeper-3.4.5 /opt/vse/zookeeper
 ln -s /opt/vse/solr-4.8-SNAPSHOT /opt/vse/solr
 ln -s /opt/vse/oozie-4.0.1 /opt/vse/oozie
+ln -s /opt/vse/knox-0.5.0 /opt/vse/knox
 
 #postgres driver needed for sqoop
 cp /opt/vse/hive/lib/postgresql-jdbc.jar /opt/vse/sqoop/lib

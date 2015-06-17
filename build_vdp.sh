@@ -71,6 +71,7 @@ cp ./thirdparty/$hadoop_ver/hue/scripts/* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/$hadoop_ver/zookeeper/scripts/_* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/$hadoop_ver/solr/scripts/* ./rpmscripts/1.0/ppc_vstore
 cp ./thirdparty/$hadoop_ver/oozie/scripts/* ./rpmscripts/1.0/ppc_vstore
+cp ./thirdparty/$hadoop_ver/knox/scripts/* ./rpmscripts/1.0/ppc_vstore
 
 cd ${BUILDHOME}
 

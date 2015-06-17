@@ -29,5 +29,7 @@ $z_base/sbin/stop_hbase_thrift_server.sh
 /bin/pkill -f ThriftServer
 /bin/kill -9 `ps -aef | grep start.jar | grep -v grep | awk '{print $2 }'`
 /bin/kill -9 `ps -aef | grep oozie | grep -v grep | awk '{print $2 }'`
+su -l knox -c '/opt/vse/knox/bin/gateway.sh stop'
+
 sleep 30
 echo " done..."

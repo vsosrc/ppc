@@ -51,3 +51,6 @@ source /opt/vse/sbin/.bashrc
 
 #configure oozie
 /opt/vse/sbin/_configure_oozie.sh $NNIPADDRESS $NNPORT $NNIPADDRESS 11000 11001 11443
+
+#configure knox
+/opt/vse/sbin/_configure_knox.sh ${NNIPADDRESS} 8020 ${NNIPADDRESS} 8050 ${NNIPADDRESS} 50070 ${NNIPADDRESS} 50111 ${NNIPADDRESS} 11000  ${NNIPADDRESS} 60080 ${NNIPADDRESS} 10000  ${NNIPADDRESS} 8088

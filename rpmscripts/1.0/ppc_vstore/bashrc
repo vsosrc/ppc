@@ -20,6 +20,8 @@ export OOZIE_HOME=/opt/vse/oozie
 export HCAT_HOME=/opt/vse/hive/hcatalog/
 #Set the path for where zookeper config dir is
 export ZOOCFGDIR=/opt/vse/zookeeper/conf
+export GATEWAY_HOME=/opt/vse/knox
+export KNOX_HOME=/opt/vse/knox
 
 #set sqoop env variables
 export SQOOP_HOME=/opt/vse/sqoop
