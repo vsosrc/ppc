@@ -17,7 +17,7 @@ $GATEWAY_HOME="/opt/vse/knox-0.5.0"
 copy config/sandbox.xml to {GATEWAY_HOME}/conf/toplogies/sandbox.xml
 
 ## to setup knox gateway 
-$su -l knox -c 'opt/vse/knox-0.5.0/bin/gateway.sh setup'
+$/opt/vse/knox-0.5.0/bin/knoxcli.sh create-master'
 
 ##Enter the master secret password. (twice)
 ##The server will discover the persisted master secret during start up and complete the setup process for demo installs.

@@ -132,7 +132,7 @@ cd /opt/vse/hue/build/env/bin
 
 echo " Starting Knox" 
 echo " Starting Knox"  >>${LOGFILE}
-su -l knox -c '/opt/vse/knox/bin/gateway.sh start
+su -l knox -c '/opt/vse/knox/bin/gateway.sh start'
 
 cd /opt/vse
 

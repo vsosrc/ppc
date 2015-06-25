@@ -125,7 +125,7 @@
 
     <service>
         <role>HIVE</role>
-        <url>http://SED_HIVE_PORT_NAME:SED_HIVE_PORT_NAME/cliservice</url>
+        <url>http://SED_HIVE_HOST_NAME:SED_HIVE_PORT/cliservice</url>
     </service>
 
     <service>
