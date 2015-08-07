@@ -7,7 +7,7 @@
 #!/bin/bash 
 
 platform=""
-hadoop_ver="2.4.1"
+hadoop_ver="2.6.0"
 #values for os are ubuntu|rhel
 os="rhel"
 

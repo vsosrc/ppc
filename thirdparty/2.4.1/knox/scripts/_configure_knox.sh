@@ -49,14 +49,12 @@ useradd knox
 #chown hue /home/hue
 
 # Changed access rights to bin directory for running gateway by any user 
-chmod 755 /opt/vse/knox-0.5.0
-chmod -R 755 /opt/vse/knox-0.5.0/conf
-chmod -R 777 /opt/vse/knox-0.5.0/data
-chmod -R 777 /opt/vse/knox-0.5.0/logs
-chmod -R 777 /opt/vse/knox-0.5.0/pids
 
-cd /opt/vse/knox/bin/
-chmod -R 777 .
+chown -R knox /opt/vse/knox-0.5.0
+chown -R knox /opt/vse/knox
+chmod -R 777 /opt/vse/knox-0.5.0
 
 #setup knox gateway
-su -l knox -c '/opt/vse/knox/bin/gateway.sh setup'
+/opt/vse/knox/bin/knoxcli.sh create-master
+
+chmod -R 755 /opt/vse/knox/data/security

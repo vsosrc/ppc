@@ -119,7 +119,7 @@ writetofile
 echo "DB Paramters ${DBUSER} ${DBPASS} ${DBIPADDR} ${DBPORT}"
 
 psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} < /opt/vse/sbin/setup_metastore_pg.sql >/dev/null
-psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} -d metastore < /opt/vse/sbin/hive-schema-0.13.0.postgres.sql >/dev/null
+psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} -d metastore < /opt/vse/sbin/hive-schema-1.1.0.postgres.sql >/dev/null
 psql -U ${DBUSER} -h ${DBIPADDR} -p ${DBPORT} -d metastore < /opt/vse/sbin/grant-privs_pg.sql >/dev/null
 
 createinvokeconfigurevstore

@@ -42,9 +42,7 @@ info "PPC vStore inputs read" >> ${logfile} 2>&1
 \rm -f /opt/vse/sbin/readppcvstoreinputs.sh
 \rm -r /opt/vse/sbin/setup_ppcvstore.sh
 \rm -r /opt/vse/sbin/.hadoopdb.sql
-\rm -r /opt/vse/sbin/hive-schema-0.13.0.postgres.sql
-\rm -f /opt/vse/sbin/setup_metastore_pg.sql
-\rm -f /opt/vse/sbin/grant-privs_pg.sql
+\rm -r /opt/vse/sbin/*.sql
 \rm -rf /opt/vse/sbin/_*.sh
 
 info "vStorm Enterpise Store setup completed: SUCCESS" >> ${logfile} 2>&1

@@ -42,23 +42,24 @@ cp $1/license/VDH-End-User-License-Agreement ${RPMDIR}/.license/
 cd ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xaa ${RPMDIR}
 cp ${THIRDPARTY}/hadoop/xab ${RPMDIR}
-cat xaa xab > ./hadoop-2.4.1.tar.gz
-tar xvf ./hadoop-2.4.1.tar.gz
-rm -f ./hadoop-2.4.1.tar.gz
-rm -f ./xaa ./xab
+cp ${THIRDPARTY}/hadoop/xac ${RPMDIR}
+cat xaa xab xac > ./hadoop-2.6.0.tar.gz
+tar xvf ./hadoop-2.6.0.tar.gz
+rm -f ./hadoop-2.6.0.tar.gz
+rm -f ./xaa ./xab ./xac
 
 if [ $PLATFORM = "ppcle" ]
 then
-	cp ${THIRDPARTY}/hadoop/config/* ${RPMDIR}/hadoop-2.4.1/etc/hadoop
+	cp ${THIRDPARTY}/hadoop/config/* ${RPMDIR}/hadoop-2.6.0/etc/hadoop
 fi
 
 #creating hive distro
-cp ${THIRDPARTY}/hive/apache-hive-0.13.0-bin.tar.gz ${RPMDIR}
-tar xvf ./apache-hive-0.13.0-bin.tar.gz
-rm -f ./apache-hive-0.13.0-bin.tar.gz
+cp ${THIRDPARTY}/hive/apache-hive-1.1.0-bin.tar.gz ${RPMDIR}
+tar xvf ./apache-hive-1.1.0-bin.tar.gz
+rm -f ./apache-hive-1.1.0-bin.tar.gz
 if [ $PLATFORM = "ppcle" ]
 then
-	cp ${THIRDPARTY}/hive/config/* ${RPMDIR}/apache-hive-0.13.0-bin/conf
+	cp ${THIRDPARTY}/hive/config/* ${RPMDIR}/apache-hive-1.1.0-bin/conf
 fi
 
 #creating hbase distro
@@ -179,11 +180,10 @@ fi
 chmod 711 ${RPMDIR}/sbin/*.sh
 if [ $OS = "ubuntu" ]
 then
-	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n vdh-ppc-vstore -v 2.4.1 -a native --prefix /opt/vse --iteration 1 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
+	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t deb -n vdh-ppc-vstore -v 2.6.0 -a native --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 	mv -f *.deb ..
 else
-	#sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.4.1 -a ppc64le --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
-	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.4.1 -a noarch --prefix /opt/vse --iteration 1 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
+	sudo fpm --description 'PPC vStore' --before-install ./sbin/preinstall_ppcvstore.sh --after-install ./sbin/postinstall_ppcvstore.sh  --before-remove ../../rpmscripts/1.0/ppc_vstore/stop_ppcvstore.sh --after-remove ../../rpmscripts/1.0/ppc_vstore/cleanup_ppcvstore.sh -s dir -t rpm -n vdh-ppc-vstore -v 2.6.0 -a noarch --prefix /opt/vse --iteration 0 --vendor 'Veristorm Inc.' --license 'PPC Enterprise vStore' --url 'http://www.veristorm.com' -m 'ananda@veristorm.com' . 
 	mv -f *.rpm ..
 fi
 
